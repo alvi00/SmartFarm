@@ -1,3 +1,26 @@
-.fahim {
-  background-color: antiquewhite;
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: blue;
+}
+.logo a img {
+  width: 180px;
+  height: 60px;
+}
+
+.all_catagories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.all_catagories p {
+  padding-left: 5px;
+  padding-right: 10px;
 }
