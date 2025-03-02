@@ -1,17 +1,21 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   background-color: blue;
 }
 .logo a img {
-  width: 180px;
+  width: auto;
   height: 60px;
 }
 
 .all_catagories {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: white;
   border: 1px solid black;
@@ -23,4 +27,75 @@
 .all_catagories p {
   padding-left: 5px;
   padding-right: 10px;
+}
+
+.dropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blanchedalmond;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+.fa-bars-staggered {
+  padding-left: 5px;
+  padding-right: 10px;
+}
+.fa-angle-down {
+  padding-left: 15px;
+  padding-right: 10px;
+}
+/* seach bar css */
+
+.search-form {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-input {
+  width: 100%;
+  padding-right: 40px; /* Space for the button */
+  border-radius: 20px;
+}
+
+.search-button {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #28a745; /* Bootstrap success color */
+  cursor: pointer;
+}
+
+.search-button i {
+  font-size: 16px;
+  padding-top: 2.5px;
+  padding-left: 4px;
+}
+
+.fa-user {
+  background-color: white;
+  padding: 8px;
+  border-radius: 20%;
+}
+.search-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-button {
+  background-color: #f8c519;
+  color: black;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+.search-text p {
+  margin: 0;
+  padding-top: 1px;
+  font-size: 16px;
 }
