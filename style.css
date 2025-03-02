@@ -1,5 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* navar css start here */
@@ -254,3 +256,160 @@ body {
   }
 }
 /*Vertical css ends here*/
+
+/*promotional_contents css starts here*/
+.Promotional_Contents {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+.promo-banner_one {
+  width: 50%;
+  height: 100%;
+  background: url("/IMG/promotion-image-1.jpeg") center/cover no-repeat;
+  border-radius: 20px;
+  margin: 30px;
+}
+
+.promo-banner_two {
+  position: relative;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background: url("/IMG/promotion-image-2.jpeg") center/cover no-repeat;
+  margin-top: 30px;
+  margin-right: 30px;
+  border-radius: 20px;
+}
+
+.right-bottom-photos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 540px;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 37%;
+}
+
+.promo-banner_three {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: url("/IMG/promotion-image-3.jpeg") center/cover no-repeat;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 15px;
+  border-radius: 20px;
+}
+.promo-banner_four {
+  width: 50%;
+  height: 100%;
+  background: url("/IMG/promotion-image-4.jpeg") center/cover no-repeat;
+  margin-top: 30px;
+  margin-right: 30px;
+  border-radius: 20px;
+}
+
+.promo-content {
+  max-width: 50%;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.promo-badge {
+  background: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.promo-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: "Pacifico", Sans-serif;
+}
+
+.promo-content p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.promo-content h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.shop-btn {
+  background: #2a8c40;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.shop-btn:hover {
+  background: #1f6d30;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .Promotional_Contents {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+
+  .promo-banner_one,
+  .promo-banner_two,
+  .promo-banner_three,
+  .promo-banner_four {
+    width: 90%; /* Full width with padding */
+    height: 250px; /* Reduce height for mobile */
+    margin: 10px auto;
+  }
+
+  .right-bottom-photos {
+    flex-direction: column;
+    position: static; /* Remove absolute positioning */
+    width: 100%;
+  }
+
+  .promo-content {
+    max-width: 90%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .promo-content h1 {
+    font-size: 28px; /* Reduce size for mobile */
+  }
+
+  .promo-content p {
+    font-size: 16px;
+  }
+
+  .promo-content h2 {
+    font-size: 24px;
+  }
+
+  .shop-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* promotional_contents ends here */
