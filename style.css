@@ -126,6 +126,33 @@ body {
   .offcanvas-body .mobile-only {
     display: block !important;
   }
+  .navbar {
+    background-color: #f7f7f7;
+  }
+  .logo a img {
+    width: auto;
+    height: 40px;
+  }
+  .fa-user {
+    background-color: #e0f0e6;
+    padding: 10px 11px;
+    font-size: 13px;
+    border-radius: 50%;
+  }
+
+  .fa-grip-lines-vertical {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .fa-heart,
+  .fa-cart-shopping,
+  .fa-bars {
+    font-size: 20px;
+  }
+  .fa-bars {
+    padding-right: 20px;
+  }
 }
 .offcanvas-buttons {
   display: flex;
