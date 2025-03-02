@@ -1,0 +1,164 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* navar css start here */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.logo a img {
+  width: auto;
+  height: 60px;
+}
+
+.all_catagories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.dropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-bars-staggered {
+  padding: 0 10px 0 5px;
+}
+
+.fa-angle-down {
+  padding: 0 10px 0 15px;
+}
+
+.search-form {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-input {
+  width: 100%;
+  padding-right: 40px;
+  border-radius: 20px;
+  border: 1px solid #28a745;
+  padding: 10px;
+}
+
+.search-button {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f8c519;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 8px 15px 8px 9px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-button i {
+  font-size: 16px;
+  padding: 2.5px 0 0 4px;
+}
+
+.fa-user {
+  background-color: #e0f0e6;
+  padding: 10px 11px;
+  font-size: 13px;
+  border-radius: 50%;
+}
+
+.fa-grip-lines-vertical {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.fa-heart,
+.fa-cart-shopping,
+.fa-bars {
+  font-size: 20px;
+}
+
+.search-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text p {
+  margin: 0;
+  padding-top: 1px;
+  font-size: 16px;
+}
+
+.icons-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 769px) {
+  /* Hide mobile elements on desktop */
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop elements on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Ensure mobile-only elements are visible inside offcanvas */
+  .offcanvas-body .mobile-only {
+    display: block !important;
+  }
+  .navbar {
+    background-color: #f7f7f7;
+  }
+  .logo a img {
+    width: auto;
+    height: 40px;
+  }
+  .fa-user {
+    background-color: #e0f0e6;
+    padding: 10px 11px;
+    font-size: 13px;
+    border-radius: 50%;
+  }
+
+  .fa-grip-lines-vertical {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .fa-heart,
+  .fa-cart-shopping,
+  .fa-bars {
+    font-size: 20px;
+  }
+  .fa-bars {
+    padding-right: 20px;
+  }
+}
+.offcanvas-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* navar css ends here */

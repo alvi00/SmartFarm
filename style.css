@@ -1,0 +1,256 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* navar css start here */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.logo a img {
+  width: auto;
+  height: 60px;
+}
+
+.all_catagories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.dropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-bars-staggered {
+  padding: 0 10px 0 5px;
+}
+
+.fa-angle-down {
+  padding: 0 10px 0 15px;
+}
+
+.search-form {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-input {
+  width: 100%;
+  padding-right: 40px;
+  border-radius: 20px;
+  border: 1px solid #28a745;
+  padding: 10px;
+}
+
+.search-button {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f8c519;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 8px 15px 8px 9px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-button i {
+  font-size: 16px;
+  padding: 2.5px 0 0 4px;
+}
+
+.fa-user {
+  background-color: #e0f0e6;
+  padding: 10px 11px;
+  font-size: 13px;
+  border-radius: 50%;
+}
+
+.fa-grip-lines-vertical {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.fa-heart,
+.fa-cart-shopping,
+.fa-bars {
+  font-size: 20px;
+}
+
+.search-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text p {
+  margin: 0;
+  padding-top: 1px;
+  font-size: 16px;
+}
+
+.icons-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 769px) {
+  /* Hide mobile elements on desktop */
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop elements on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Ensure mobile-only elements are visible inside offcanvas */
+  .offcanvas-body .mobile-only {
+    display: block !important;
+  }
+  .navbar {
+    background-color: #f7f7f7;
+  }
+  .logo a img {
+    width: auto;
+    height: 40px;
+  }
+  .fa-user {
+    background-color: #e0f0e6;
+    padding: 10px 11px;
+    font-size: 13px;
+    border-radius: 50%;
+  }
+
+  .fa-grip-lines-vertical {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .fa-heart,
+  .fa-cart-shopping,
+  .fa-bars {
+    font-size: 20px;
+  }
+  .fa-bars {
+    padding-right: 20px;
+  }
+}
+.offcanvas-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* navar css ends here */
+
+/*Vertical css starts here*/
+.vertical-products {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between items */
+  padding: 10px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.vertical-products::-webkit-scrollbar {
+  display: none;
+}
+
+.items_all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-width: 250px; /* Ensures items don’t shrink */
+}
+
+.image_of_the_item {
+  width: 70px;
+  height: 70px;
+  background-color: #e0f0e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.image_of_the_item img {
+  width: auto;
+  height: 40px;
+}
+
+.item_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5px 20px;
+}
+
+.item_description h6 {
+  margin: 0;
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+.item_description p {
+  margin: 0;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .items_all {
+    min-width: 200px; /* Adjust item size for small screens */
+  }
+
+  .item_description {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image_of_the_item {
+    width: 60px;
+    height: 60px;
+  }
+
+  .image_of_the_item img {
+    height: 35px;
+  }
+
+  .item_description h6 {
+    font-size: 14px;
+  }
+
+  .item_description p {
+    font-size: 11px;
+  }
+}
+/*Vertical css ends here*/
