@@ -2,6 +2,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+/* navar css start here */
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -159,3 +160,5 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
+/* navar css ends here */
