@@ -14,20 +14,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- The Navbar starts here -->
     <nav>
       <div class="navbar">
-        <!-- Logo -->
         <div class="logo">
           <a href="#"><img src="/IMG/LOGO DESIGN-01.png" alt="logo" /></a>
         </div>
 
-        <!-- Dropdown for categories -->
-        <div class="dropdown">
+        <!-- Desktop Categories -->
+        <div class="desktop-only dropdown">
           <button
             class="btn all_catagories"
             type="button"
@@ -53,44 +50,35 @@
           </ul>
         </div>
 
-        <!-- Search bar -->
-        <form class="d-flex search-form" role="search">
+        <!-- Desktop Search -->
+        <form class="d-flex search-form desktop-only" role="search">
           <input
             class="form-control search-input"
             type="search"
-            placeholder="&nbsp;&nbsp;&nbsp;Type Your Products"
+            placeholder="   Type Your Products"
             aria-label="Search"
           />
           <button class="btn search-button" type="submit">
             <div class="search-text">
               <p>Search</p>
-              &nbsp;<i class="fas fa-search"></i>
+              <i class="fas fa-search"></i>
             </div>
           </button>
         </form>
+
         <div class="icons-right">
-          <!-- User icon -->
           <div class="user-icon">
             <i class="fa-regular fa-user"></i>
           </div>
-
-          <!-- Divider line -->
           <div class="divider-line">
             <i class="fa-solid fa-grip-lines-vertical"></i>
           </div>
-
-          <!-- Heart icon -->
           <div class="heart-icon">
             <i class="fa-regular fa-heart"></i>
           </div>
-
-          <!-- Shopping cart icon -->
           <div class="shopping-cart-icon">
             <i class="fa-solid fa-cart-shopping"></i>
           </div>
-
-          <!-- Hamburger menu -->
-          <!--Code for modal starts here-->
           <button
             class="btn"
             type="button"
@@ -103,6 +91,7 @@
             </div>
           </button>
 
+          <!-- Offcanvas Menu -->
           <div
             class="offcanvas offcanvas-start"
             tabindex="-1"
@@ -110,9 +99,7 @@
             aria-labelledby="offcanvasExampleLabel"
           >
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-                Offcanvas
-              </h5>
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -121,36 +108,64 @@
               ></button>
             </div>
             <div class="offcanvas-body">
-              <div class="">
-                Some text as placeholder. In real life you can have the elements
-                you have chosen. Like, text, images, lists, etc.
-              </div>
-              <div class="dropdown mt-3">
+              <!-- Mobile Categories (Visible only in mobile) -->
+              <div class="mobile-only dropdown mb-3">
                 <button
-                  class="btn btn-secondary dropdown-toggle"
+                  class="btn all_catagories w-100"
                   type="button"
                   data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  Dropdown button
+                  <i class="fa-solid fa-bars-staggered"></i>
+                  All Categories
+                  <i class="fa-solid fa-angle-down"></i>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <button class="dropdown-item" type="button">Action</button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button">
+                      Another action
+                    </button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button">
+                      Something else here
+                    </button>
                   </li>
                 </ul>
               </div>
+
+              <!-- Mobile Search (Visible only in mobile) -->
+              <form class="d-flex search-form mobile-only mb-3" role="search">
+                <input
+                  class="form-control search-input"
+                  type="search"
+                  placeholder="   Type Your Products"
+                  aria-label="Search"
+                />
+                <button class="btn search-button" type="submit">
+                  <div class="search-text">
+                    <p>Search</p>
+                    <i class="fas fa-search"></i>
+                  </div>
+                </button>
+              </form>
+
+              <!-- New Buttons (Always Visible in Offcanvas) -->
+              <div class="offcanvas-buttons">
+                <button class="btn btn-primary w-100 mb-2">Button 1</button>
+                <button class="btn btn-secondary w-100 mb-2">Button 2</button>
+                <button class="btn btn-success w-100 mb-2">Button 3</button>
+                <button class="btn btn-danger w-100">Button 4</button>
+              </div>
             </div>
           </div>
-          <!--Code for modal ends here-->
         </div>
       </div>
-      <!-- Closing the navbar div properly -->
     </nav>
-    <!-- The Navbar ends here -->
 
-    <!-- FontAwesome and Bootstrap JS -->
     <script
       src="https://kit.fontawesome.com/85fcd39f72.js"
       crossorigin="anonymous"
