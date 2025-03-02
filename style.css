@@ -6,7 +6,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: blue;
 }
 .logo a img {
   width: auto;
@@ -80,6 +79,31 @@ body {
   background-color: white;
   padding: 8px;
   border-radius: 20%;
+  position: relative;
+  right: 95px;
+}
+.fa-grip-lines-vertical {
+  position: relative;
+  right: 75px;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.fa-heart {
+  position: relative;
+  right: 55px;
+  font-size: 20px;
+}
+.fa-cart-shopping {
+  position: relative;
+  right: 30px;
+  font-size: 20px;
+}
+
+.fa-bars {
+  position: relative;
+  right: 5px;
+  font-size: 20px;
 }
 .search-text {
   display: flex;
@@ -98,4 +122,14 @@ body {
   margin: 0;
   padding-top: 1px;
   font-size: 16px;
+}
+
+.icons-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 10px;
+  padding-left: 40px;
+  padding-right: 10px;
 }
