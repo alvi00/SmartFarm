@@ -162,3 +162,95 @@ body {
 }
 
 /* navar css ends here */
+
+/*Vertical css starts here*/
+.vertical-products {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between items */
+  padding: 10px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.vertical-products::-webkit-scrollbar {
+  display: none;
+}
+
+.items_all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-width: 250px; /* Ensures items don’t shrink */
+}
+
+.image_of_the_item {
+  width: 70px;
+  height: 70px;
+  background-color: #e0f0e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.image_of_the_item img {
+  width: auto;
+  height: 40px;
+}
+
+.item_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5px 20px;
+}
+
+.item_description h6 {
+  margin: 0;
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+.item_description p {
+  margin: 0;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .items_all {
+    min-width: 200px; /* Adjust item size for small screens */
+  }
+
+  .item_description {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image_of_the_item {
+    width: 60px;
+    height: 60px;
+  }
+
+  .image_of_the_item img {
+    height: 35px;
+  }
+
+  .item_description h6 {
+    font-size: 14px;
+  }
+
+  .item_description p {
+    font-size: 11px;
+  }
+}
+/*Vertical css ends here*/
