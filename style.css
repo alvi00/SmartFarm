@@ -6,6 +6,8 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 10px;
+  margin-top: 10px;
 }
 .logo a img {
   width: auto;
@@ -17,10 +19,12 @@ body {
   justify-content: center;
   align-items: center;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #28a745; /* Bootstrap success color */
   border-radius: 20px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .all_catagories p {
@@ -32,7 +36,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: blanchedalmond;
   padding-left: 15px;
   padding-right: 10px;
 }
@@ -56,17 +59,23 @@ body {
   width: 100%;
   padding-right: 40px; /* Space for the button */
   border-radius: 20px;
+  border: 1px solid #28a745; /* Bootstrap success color */
+  padding: 10px;
 }
 
 .search-button {
   position: absolute;
-  right: 0px;
+  right: 3px;
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
   border: none;
   color: #28a745; /* Bootstrap success color */
   cursor: pointer;
+  padding-left: 9px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .search-button i {
@@ -76,9 +85,13 @@ body {
 }
 
 .fa-user {
-  background-color: white;
-  padding: 8px;
-  border-radius: 20%;
+  background-color: #e0f0e6;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 11px;
+  padding-left: 11px;
+  font-size: 20px;
+  border-radius: 50%;
   position: relative;
   right: 95px;
 }
