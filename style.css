@@ -315,53 +315,187 @@ body {
 }
 
 .promo-content {
-  max-width: 50%;
-  padding: 20px;
-  border-radius: 8px;
+  width: auto;
+  height: auto;
+  padding: 50px;
+  margin-top: 100px;
 }
 
 .promo-badge {
   background: red;
   color: white;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 4px;
   display: inline-block;
-  margin-bottom: 10px;
 }
 
 .promo-content h1 {
-  font-size: 36px;
+  font-size: 55px;
   font-weight: bold;
-  margin-bottom: 5px;
-  font-family: "Pacifico", Sans-serif;
+  padding-top: 15px;
 }
 
 .promo-content p {
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 500;
-  margin-bottom: 10px;
+  color: #28a745;
 }
 
 .promo-content h2 {
   font-size: 28px;
-  margin-bottom: 15px;
+  font-weight: bolder;
+  padding-bottom: 10px;
 }
 
 .shop-btn {
   background: #2a8c40;
   color: white;
   border: none;
-  padding: 10px 16px;
+  padding: 10px 25px;
   font-size: 16px;
-  border-radius: 6px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 5px;
+  font-weight: 600;
 }
 
 .shop-btn:hover {
   background: #1f6d30;
+}
+
+/* for the second image */
+
+.promo-content_banner_two {
+  width: auto;
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 40px;
+}
+
+.promo-content_banner_two h1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.promo-content_banner_two p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #28a745;
+}
+
+.promo-content_banner_two h2 {
+  font-size: 25px;
+  font-weight: bolder;
+  padding-bottom: 10px;
+  color: red;
+}
+
+.shop-btn_banner_two {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 25px;
+  font-size: 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.shop-btn_banner_two:hover {
+  background: #2a8c40;
+  color: white;
+}
+
+/* for the third image */
+
+.promo-content_banner_three {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 8px;
+}
+
+.promo-content_banner_three h1 {
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 15px;
+  color: white;
+}
+
+.promo-content_banner_three p {
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.shop-btn_banner_three {
+  background: white;
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  font-size: 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 120px;
+  font-weight: 400;
+}
+
+.shop-btn_banner_three:hover {
+  background: #2a8c40;
+  color: white;
+}
+
+/* for the fourth image */
+
+.promo-content_banner_four {
+  width: auto;
+  height: auto;
+  padding-left: 30px;
+  padding-right: 50px;
+  padding-top: 8px;
+}
+
+.promo-content_banner_four h1 {
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 15px;
+  color: black;
+}
+
+.promo-content_banner_four p {
+  font-size: 12px;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.shop-btn_banner_four {
+  background: white;
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  font-size: 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 120px;
+  font-weight: 400;
+}
+
+.shop-btn_banner_four:hover {
+  background: #2a8c40;
+  color: white;
 }
 
 /* ✅ Responsive */
@@ -387,28 +521,68 @@ body {
     width: 100%;
   }
 
-  .promo-content {
-    max-width: 90%;
-    text-align: center;
-    padding: 10px;
-  }
-
-  .promo-content h1 {
-    font-size: 28px; /* Reduce size for mobile */
-  }
-
-  .promo-content p {
+  .promo-badge {
     font-size: 16px;
   }
 
+  .promo-content {
+    max-width: 90%;
+    padding: 30px;
+    position: relative;
+    bottom: 105px;
+  }
+
+  .promo-content h1 {
+    font-size: 25px; /* Reduce size for mobile */
+  }
+
+  .promo-content p {
+    font-size: 20px;
+  }
+
   .promo-content h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .shop-btn {
     width: 100%;
     font-size: 14px;
     padding: 8px;
+  }
+
+  .promo-content_banner_two {
+    max-width: 90%;
+    padding: 30px;
+  }
+
+  .promo-content_banner_two h1 {
+    font-size: 20px; /* Reduce size for mobile */
+  }
+
+  .promo-content_banner_two p {
+    font-size: 15px;
+    color: black;
+  }
+
+  .promo-content_banner_two h2 {
+    font-size: 20px;
+  }
+
+  .shop-btn_banner_two-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+  .shop-btn_banner_three {
+    margin-top: 90px;
+  }
+
+  .promo-content_banner_four p {
+    font-size: 15px;
+    color: black;
+  }
+  .shop-btn_banner_four {
+    margin-top: 70px;
   }
 }
 
