@@ -647,9 +647,9 @@ body {
 
   .featured-products-text h3 {
     font-size: 24px; /* Adjusts font size */
-    padding-right: 0; /* Removes extra padding */
     margin-top: -40px;
     margin-bottom: 20px;
+    padding-left: 10px;
   }
 
   .right-side-text {
@@ -696,7 +696,6 @@ body {
   scroll-snap-type: x mandatory; /* Ensures smooth snapping */
   padding: 20px;
   white-space: nowrap; /* Prevents wrapping */
-  background-color: blue;
   margin-bottom: 40px;
 }
 
@@ -836,3 +835,82 @@ body {
 }
 
 /* featured-products css ends here */
+/* Top Sellers Section */
+.top-sellers {
+  padding: 20px 15px;
+}
+
+.top-sellers h3 {
+  color: #28a745;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+/* Horizontal Scroll for Mobile */
+.cards-of-sellers {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  scroll-snap-type: x mandatory; /* Smooth snap scrolling */
+  justify-content: space-around;
+}
+
+.cards-of-sellers::-webkit-scrollbar {
+  height: 6px; /* Smaller scrollbar */
+}
+
+.cards-of-sellers::-webkit-scrollbar-thumb {
+  background: #28a745;
+  border-radius: 10px;
+}
+
+.cards-of-sellers::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Individual Seller Card */
+.card {
+  flex: 0 0 auto; /* Prevents shrinking */
+  width: 300px; /* Adjust card width */
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  scroll-snap-align: center; /* Ensures smooth snapping */
+}
+.card-body h5 {
+  color: #28a745;
+  font-size: small;
+  font-weight: 500;
+}
+
+.card-body p {
+  font-size: medium;
+  font-weight: bold;
+  color: black;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .cards-of-sellers {
+    flex-direction: column; /* Stacks cards vertically on small screens */
+    align-items: center;
+  }
+
+  .card {
+    max-width: 90%; /* Adjust width for better fit */
+  }
+
+  .top-sellers h3 {
+    color: #28a745;
+    font-size: 20px;
+    padding-left: 10px;
+    margin-top: -20px;
+    margin-bottom: 5px;
+  }
+}
+
+/*Top sellers ends here*/
