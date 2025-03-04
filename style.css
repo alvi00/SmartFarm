@@ -268,7 +268,7 @@ body {
 .promo-banner_one {
   width: 50%;
   height: 100%;
-  background: url("/IMG/promotion-image-1.jpeg") center/cover no-repeat;
+  background: url("IMG/promotion-image-1.jpeg") center/cover no-repeat;
   border-radius: 20px;
   margin: 30px;
 }
@@ -278,7 +278,7 @@ body {
   right: 0;
   width: 50%;
   height: 50%;
-  background: url("/IMG/promotion-image-2.jpeg") center/cover no-repeat;
+  background: url("IMG/promotion-image-2.jpeg") center/cover no-repeat;
   margin-top: 30px;
   margin-right: 30px;
   border-radius: 20px;
@@ -300,7 +300,7 @@ body {
   position: relative;
   width: 50%;
   height: 100%;
-  background: url("/IMG/promotion-image-3.jpeg") center/cover no-repeat;
+  background: url("IMG/promotion-image-3.jpeg") center/cover no-repeat;
   margin-top: 30px;
   margin-right: 30px;
   margin-left: 15px;
@@ -309,7 +309,7 @@ body {
 .promo-banner_four {
   width: 50%;
   height: 100%;
-  background: url("/IMG/promotion-image-4.jpeg") center/cover no-repeat;
+  background: url("IMG/promotion-image-4.jpeg") center/cover no-repeat;
   margin-top: 30px;
   margin-right: 30px;
   border-radius: 20px;
