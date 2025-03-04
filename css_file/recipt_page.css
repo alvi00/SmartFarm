@@ -1,0 +1,91 @@
+/* Receipt Page Styles */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.receipt-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+.receipt-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.receipt-header .logo img {
+    width: 150px;
+    height: auto;
+}
+
+.receipt-header h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.customer-details, .product-details, .payment-summary {
+    margin-bottom: 30px;
+}
+
+.customer-details h2, .product-details h2, .payment-summary h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.customer-details p, .payment-summary p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.product-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.product-details th, .product-details td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.product-details th {
+    background-color: #f8f9fa;
+}
+
+.payment-summary p strong {
+    font-weight: bold;
+}
+
+.receipt-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .receipt-container {
+        padding: 25px;
+    }
+
+    .receipt-header .logo img {
+        width: 120px;
+    }
+
+    .product-details th, .product-details td {
+        padding: 8px;
+    }
+}
