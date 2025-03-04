@@ -3,50 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Product Details</title>
     <link rel="stylesheet" href="../css_file/featured_product.css" />
   </head>
   <body>
+    
     <div class="container">
       <div class="product-gallery">
-          <img id="main-image" src="/IMG/potatoes.png" alt="Picture of Potatoes">
-          <div class="thumbnail-container">
-              <img class="thumbnail" src="/IMG/potatoes side view 1.png" alt="Thumbnail 1">
-              <img class="thumbnail" src="/IMG/potatoes side image 2.png" alt="Thumbnail 2">
-          </div>
+        <!-- Main Image Box -->
+        <div class="main-image-box">
+          <img id="main-image" src="/IMG/potatoes.png" alt="Picture of Potatoes" class="active">
+          <img id="second-image" src="/IMG/potatoes.png" alt="Second Picture of Potatoes">
+          <!-- Slide Buttons -->
+          <button class="slide-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="slide-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <!-- Side Images Box -->
+        <div class="side-images-box">
+          <img class="side-image" src="/IMG/potatoes side view 1.png" alt="Side View 1" onmouseover="changeImage('/IMG/potatoes side view 1.png')">
+          <img class="side-image" src="/IMG/potatoes side image 2.png" alt="Side View 2" onmouseover="changeImage('/IMG/potatoes side image 2.png')">
+        </div>
       </div>
       <div class="product-details">
-          <h1>Potatoes Fresh Premium Fruit and Produce Vegetables, 4 pound case</h1>
-          <p class="rating">★★★★★ (0 Customer Reviews)</p>
-          <p class="description">People live in a world of changing seasons, where opportunities and challenges arise.</p>
-          <ul>
-              <li>People live in a changing environment.</li>
-              <li>Facing challenges in difficult situations.</li>
-              <li>Finding balance and adapting over time.</li>
-          </ul>
-          <p class="price">$30.00 - $38.00</p>
-          <div class="options">
-              <label>Weight:</label>
-              <button class="weight-option">100gm</button>
-              <button class="weight-option">500gm</button>
+        <h1>Potatoes Fresh Premium Fruit and Produce Vegetables, 4 pound case</h1>
+        <p class="rating">★★★★★ (0 Customer Reviews)</p>
+        <p class="description">People live in a world of changing seasons, where opportunities and challenges arise.</p>
+        <ul>
+          <li>People live in a changing environment.</li>
+          <li>Facing challenges in difficult situations.</li>
+          <li>Finding balance and adapting over time.</li>
+        </ul>
+        <p class="price">$30.00 - $38.00</p>
+        <div class="options">
+          <label>Weight:</label>
+          <button class="weight-option">100gm</button>
+          <button class="weight-option">500gm</button>
+        </div>
+        <div class="cart-options">
+          <button class="quantity-btn">-</button>
+          <input type="text" value="1" class="quantity">
+          <button class="quantity-btn">+</button>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+        <p>SKU: BG-1037 | Category: Vegetables | Tags: Sweet, Yogurt | MFG: 10/02/2025</p>
+        <div class="features">
+          <p>🚚 Free worldwide shipping on all orders over $100</p>
+          <p>🌱 Guaranteed 100% Organic from natural farms</p>
+          <p>🔄 1 Day Returns if you change your mind</p>
+        </div>
+        <div class="checkout">
+            <p>Guaranteed Safe Checkout</p>
+            <div class="payment-options">
+              <i class="fa fa-cc-visa" style="font-size: 48px; color: #1a1f71;"></i> <!-- Visa Icon -->
+              <i class="fa fa-cc-mastercard" style="font-size: 48px; color: #eb001b;"></i> <!-- Mastercard Icon -->
+              <span class="cash-on-delivery">Cash on Delivery</span>
+            </div>
           </div>
-          <div class="cart-options">
-              <button class="quantity-btn">-</button>
-              <input type="text" value="1" class="quantity">
-              <button class="quantity-btn">+</button>
-              <button class="add-to-cart">Add to cart</button>
-          </div>
-          <p>SKU: BG-1037 | Category: Vegetables | Tags: Sweet, Yogurt | MFG: 10/02/2025</p>
-          <div class="features">
-              <p>🚚 Free worldwide shipping on all orders over $100</p>
-              <p>🌱 Guaranteed 100% Organic from natural farms</p>
-              <p>🔄 1 Day Returns if you change your mind</p>
-          </div>
-          <div class="checkout">
-              <p>Guaranteed Safe Checkout</p>
-              <img src="payment-icons.png" alt="Payment Options">
-          </div>
-      </div>
-  </div>
+    </div>
+
+    <script>
+      let currentSlide = 0;
+
+      function changeSlide(direction) {
+        const images = document.querySelectorAll('.main-image-box img');
+        images[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + images.length) % images.length;
+        images[currentSlide].classList.add('active');
+      }
+
+      function changeImage(src) {
+        document.getElementById('main-image').src = src;
+      }
+    </script>
   </body>
 </html>
