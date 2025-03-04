@@ -1,0 +1,109 @@
+/* Farmer Form Styles */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.farmer-form-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.farmer-form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.farmer-form-card h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.product-field {
+    margin-bottom: 10px;
+}
+
+.btn-add-product {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-add-product:hover {
+    background-color: #218838;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .farmer-form-card {
+        padding: 25px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+}
