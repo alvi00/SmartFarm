@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Details Form</title>
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css_file/add_farmar_form.css">
+</head>
+<body>
+    <div class="farmer-form-container">
+        <div class="farmer-form-card">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="../IMG/LOGO DESIGN-01.png" alt="Company Logo">
+            </div>
+
+            <!-- Form Title -->
+            <h2>Details of Farmer</h2>
+
+            <!-- Farmer Form -->
+            <form class="farmer-form">
+                <!-- Name -->
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="Enter full name" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="Enter phone number" required>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea class="form-control" placeholder="Enter address" rows="3" required></textarea>
+                </div>
+
+                <!-- Type of Products -->
+                <div class="form-group">
+                    <label>Type of Products</label>
+                    <div id="product-fields">
+                        <div class="product-field">
+                            <input type="text" class="form-control" placeholder="Enter product type" required>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-product" onclick="addProductField()">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <!-- Nationality -->
+                <div class="form-group">
+                    <label>Nationality</label>
+                    <input type="text" class="form-control" placeholder="Enter nationality" required>
+                </div>
+
+                <!-- Be a Farmer For -->
+                <div class="form-group">
+                    <label>Be a Farmer For</label>
+                    <select class="form-control" required>
+                        <option value="">Select Duration</option>
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Years</option>
+                        <option value="5">5 Years</option>
+                        <option value="10">10 Years</option>
+                        <option value="15">15 Years</option>
+                        <option value="20">20+ Years</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Adding Product Fields -->
+    <script>
+        function addProductField() {
+            const productFields = document.getElementById('product-fields');
+            const newField = document.createElement('div');
+            newField.classList.add('product-field');
+            newField.innerHTML = `
+                <input type="text" class="form-control" placeholder="Enter product type" required>
+            `;
+            productFields.appendChild(newField);
+        }
+    </script>
+</body>
+</html>
