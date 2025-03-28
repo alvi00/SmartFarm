@@ -137,6 +137,7 @@ body {
   }
   .navbar {
     background-color: #f7f7f7;
+    overflow-y: none;
   }
   .logo a img {
     width: auto;
@@ -379,8 +380,112 @@ ul li a:hover {
     right: 0;
     top: 30px;
   }
+}
 
-  .navbar {
-    padding-bottom: 20px;
+/*Hero Section starts here*/
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url("../IMG/farmer_hero_section_bg.png") center/cover no-repeat;
+  background-position: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white; /* Make sure text color stands out */
+  font-family: "Arial", sans-serif; /* Change to a modern, easy-to-read font */
+}
+
+/* Dark overlay with blur */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Slightly lighter dark shade */
+  backdrop-filter: blur(8px); /* Add more blur for a modern touch */
+  z-index: 0; /* Ensure it's below the content */
+}
+
+/* Ensure text appears above the overlay */
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  color: whitesmoke;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Make the text more impactful */
+  letter-spacing: 2px; /* Add a little letter spacing for style */
+  opacity: 0; /* Hide initially */
+  animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* Add a delay to the second h2 for a staggered effect */
+.hero h2:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.hero p {
+  color: white;
+  font-size: 1.2rem;
+  max-width: 600px; /* Limiting width for readability */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 300; /* Lighter text for body */
+  opacity: 0; /* Hide initially */
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.6s; /* Slight delay after headings */
+}
+
+/* Glowing effect for the headings */
+.hero h2:hover {
+  text-shadow: 0 0 10px #1b774d, 0 0 20px #1f6d30;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Keyframes for fade-in and slide-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to normal position */
   }
 }
+
+.button {
+  background-color: #28a745; /* Bright, attention-grabbing color */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px; /* Rounded corners for a modern look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase; /* Make the button text uppercase */
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #1f6d30; /* Slightly darker on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Ensure button has a nice spacing from the text */
+.hero .button {
+  margin-top: 20px;
+}
+
+/*Hero Section ends here*/
