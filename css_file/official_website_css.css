@@ -489,3 +489,38 @@ ul li a:hover {
 }
 
 /*Hero Section ends here*/
+
+/* numbers section starts here */
+.counter-section {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1b774d, #28a745);
+  color: white;
+  text-align: center;
+}
+
+.counter-box {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  min-width: 120px;
+}
+
+.counter-box h2 {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .counter-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* numbers section ends here */
