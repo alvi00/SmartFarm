@@ -17,21 +17,12 @@ body {
   width: 100%;
   z-index: 1000;
   background-color: white;
+  margin-bottom: 0;
 }
 
 .logo a img {
   width: auto;
   height: 60px;
-}
-
-.all_catagories {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  border: 1px solid #28a745;
-  border-radius: 20px;
-  padding: 10px 15px;
 }
 
 .dropdown button {
@@ -524,3 +515,65 @@ ul li a:hover {
 }
 
 /* numbers section ends here */
+/* about us  section stars here */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #1b774d, #28a745);
+  color: white;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.learn-more {
+  background: white;
+  color: #1b774d;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+}
+
+/* about us section ends here */
