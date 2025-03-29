@@ -1,0 +1,553 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* navar css start here */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: whitesmoke;
+}
+
+.logo a img {
+  width: auto;
+  height: 60px;
+}
+
+.all_catagories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #28a745;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.dropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-bars-staggered {
+  padding: 0 10px 0 5px;
+}
+
+.fa-angle-down {
+  padding: 0 10px 0 15px;
+}
+
+.search-form {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-input {
+  width: 100%;
+  padding-right: 40px;
+  border-radius: 20px;
+  border: 1px solid #28a745;
+  padding: 10px;
+}
+
+.search-button {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f8c519;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 8px 15px 8px 9px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-button i {
+  font-size: 16px;
+  padding: 2.5px 0 0 4px;
+}
+
+.fa-user {
+  background-color: #e0f0e6;
+  padding: 10px 11px;
+  font-size: 13px;
+  border-radius: 50%;
+}
+
+.fa-grip-lines-vertical {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.fa-heart,
+.fa-cart-shopping,
+.fa-bars {
+  font-size: 20px;
+}
+
+.search-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text p {
+  margin: 0;
+  padding-top: 1px;
+  font-size: 16px;
+}
+
+.icons-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 769px) {
+  /* Hide mobile elements on desktop */
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop elements on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Ensure mobile-only elements are visible inside offcanvas */
+  .offcanvas-body .mobile-only {
+    display: block !important;
+  }
+
+  .logo a img {
+    width: auto;
+    height: 40px;
+  }
+  .fa-user {
+    background-color: #e0f0e6;
+    padding: 10px 11px;
+    font-size: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .fa-grip-lines-vertical {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .fa-heart,
+  .fa-cart-shopping,
+  .fa-bars {
+    font-size: 20px;
+  }
+  .fa-bars {
+    padding-right: 20px;
+  }
+}
+.offcanvas-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* navar css ends here */
+
+/* Footer Styles */
+.footer {
+  background-color: #1b774d;
+  color: white;
+  padding: 40px 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  width: 20%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.logo-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-section img {
+  width: 40px;
+}
+
+.social-icons i {
+  margin-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 8px 0;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  color: #ffcc00;
+}
+
+.newsletter-input {
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.newsletter-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.newsletter-input button {
+  background: #ffcc00;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.app-icons img {
+  width: 120px;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/*Footer ends here*/
+/*for offcanvas button*/
+.alvi {
+  background-color: #28a745;
+  color: white;
+}
+
+.alvi:hover {
+  background-color: #1f6d30;
+}
+
+.alvi a {
+  text-decoration: none;
+  color: white;
+}
+
+/*for offcanvas button ends here*/
+
+/*Hero Section starts here*/
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url("../IMG/office_hero_Section_bg.jpg") center/cover no-repeat;
+  background-position: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white; /* Make sure text color stands out */
+  font-family: "Arial", sans-serif; /* Change to a modern, easy-to-read font */
+}
+
+/* Dark overlay with blur */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Slightly lighter dark shade */
+  backdrop-filter: blur(8px); /* Add more blur for a modern touch */
+  z-index: 0; /* Ensure it's below the content */
+}
+
+/* Ensure text appears above the overlay */
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  color: whitesmoke;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Make the text more impactful */
+  letter-spacing: 2px; /* Add a little letter spacing for style */
+  opacity: 0; /* Hide initially */
+  animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* Add a delay to the second h2 for a staggered effect */
+.hero h2:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.hero p {
+  color: white;
+  font-size: 1.2rem;
+  max-width: 600px; /* Limiting width for readability */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 300; /* Lighter text for body */
+  opacity: 0; /* Hide initially */
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.6s; /* Slight delay after headings */
+}
+
+/* Glowing effect for the headings */
+.hero h2:hover {
+  text-shadow: 0 0 10px #1b774d, 0 0 20px #1f6d30;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Keyframes for fade-in and slide-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to normal position */
+  }
+}
+
+.button {
+  background-color: #28a745; /* Bright, attention-grabbing color */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px; /* Rounded corners for a modern look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase; /* Make the button text uppercase */
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #1f6d30; /* Slightly darker on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Ensure button has a nice spacing from the text */
+.hero .button {
+  margin-top: 20px;
+}
+
+/*Hero Section ends here*/
+
+/*farmer section starts here*/
+.top-sellers {
+  padding: 20px 15px;
+  padding-top: 50px;
+}
+
+.top-sellers h3 {
+  color: #28a745;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+/* our produts div starts here */
+.product-card-div_down {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+  padding: 20px;
+  flex-wrap: wrap; /* Allows items to wrap into new lines */
+  gap: 30px; /* Adds spacing between product cards */
+}
+/*product card starts here*/
+
+.product-card_down {
+  width: calc(33.33% - 20px); /* Three per row with spacing */
+  max-width: 500px; /* Prevents cards from getting too large */
+  min-width: 280px; /* Prevents cards from getting too small */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Product Image */
+.product-image_down img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+/* Product Details */
+.product-details_down {
+  flex-grow: 1;
+}
+
+.category_down {
+  font-size: 12px;
+  color: gray;
+  margin: 0;
+}
+
+.discount_down {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.price_down {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+.discount_down {
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.product-title_down {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  word-wrap: break-word; /* Ensures long words break properly */
+  overflow: hidden; /* Hides anything that overflows */
+  text-overflow: ellipsis; /* Adds "..." if text overflows */
+}
+
+/* Rating */
+.rating_down {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: gold;
+}
+
+.rating-value_down {
+  font-size: 12px;
+  color: gray;
+  margin-left: 5px;
+}
+
+/* Wishlist Button */
+.wishlist_down {
+  position: absolute;
+  top: 20px;
+  right: 13px;
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+}
+
+.wishlist:hover {
+  color: red;
+}
+.wishlist_down:hover {
+  color: red;
+}
+
+/*product card ends here*/
+
+/* add member div starts here */
+.add-member-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  /* background: linear-gradient(135deg, #1b774d, #28a745);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.add-member-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: #28a745;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.add-member-btn:hover {
+  background: #1b774d;
+  transform: scale(1.1);
+}
+
+.add-member-btn:active {
+  transform: scale(0.9);
+}
+
+/* add member div ends here */
