@@ -25,17 +25,45 @@
         </div>
 
         <!-- Form Title -->
-        <h2>Details of Farmer</h2>
+        <h2>Farmer Details</h2>
 
         <!-- Farmer Form -->
-        <form class="farmer-form">
-          <!-- Name -->
+        <form
+          class="farmer-form"
+          action="../php_file/add_farmer_form.php"
+          method="POST"
+        >
+          <!-- Farmer ID (hidden or auto-generated) -->
+          <div class="form-group">
+            <label>Farmer ID</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Auto-generated ID"
+              readonly
+              value="Auto-generated"
+            />
+          </div>
+
+          <!-- Full Name -->
           <div class="form-group">
             <label>Full Name</label>
             <input
               type="text"
               class="form-control"
               placeholder="Enter full name"
+              name="full_name"
+              required
+            />
+          </div>
+          <!-- Face Image Upload -->
+          <div class="form-group">
+            <label for="face_image">Upload Farmer's Face Image</label>
+            <input
+              type="file"
+              class="form-control"
+              name="face_image"
+              accept="image/*"
               required
             />
           </div>
@@ -47,6 +75,7 @@
               type="tel"
               class="form-control"
               placeholder="Enter phone number"
+              name="phone_number"
               required
             />
           </div>
@@ -57,31 +86,10 @@
             <textarea
               class="form-control"
               placeholder="Enter address"
+              name="address"
               rows="3"
               required
             ></textarea>
-          </div>
-
-          <!-- Type of Products -->
-          <div class="form-group">
-            <label>Type of Products</label>
-            <div id="product-fields">
-              <div class="product-field">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Enter product type"
-                  required
-                />
-              </div>
-            </div>
-            <button
-              type="button"
-              class="btn-add-product"
-              onclick="addProductField()"
-            >
-              <i class="fas fa-plus"></i> Add Product
-            </button>
           </div>
 
           <!-- Nationality -->
@@ -91,28 +99,87 @@
               type="text"
               class="form-control"
               placeholder="Enter nationality"
+              name="nationality"
               required
             />
           </div>
 
-          <!-- Be a Farmer For -->
+          <!-- Email (Optional) -->
           <div class="form-group">
-            <label>Be a Farmer For</label>
-            <select class="form-control" required>
-              <option value="">Select Duration</option>
-              <option value="1">1 Year</option>
-              <option value="2">2 Years</option>
-              <option value="5">5 Years</option>
-              <option value="10">10 Years</option>
-              <option value="15">15 Years</option>
-              <option value="20">20+ Years</option>
-            </select>
+            <label>Email (Optional)</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Enter email"
+              name="email"
+            />
+          </div>
+
+          <!-- Farm Type (Multi-Select Dropdown) -->
+          <div class="form-group farm-type-group">
+            <label>Farm Type</label><br />
+            <input
+              type="checkbox"
+              id="vegetables"
+              name="farm_type[]"
+              value="vegetables"
+            />
+            <label for="vegetables">Vegetables</label><br />
+
+            <input
+              type="checkbox"
+              id="fresh_food"
+              name="farm_type[]"
+              value="fresh_food"
+            />
+            <label for="fresh_food">Fresh Food</label><br />
+
+            <input
+              type="checkbox"
+              id="dairy_items"
+              name="farm_type[]"
+              value="dairy_items"
+            />
+            <label for="dairy_items">Dairy Items</label><br />
+
+            <input
+              type="checkbox"
+              id="fish_items"
+              name="farm_type[]"
+              value="fish_items"
+            />
+            <label for="fish_items">Fish Items</label><br />
+
+            <input
+              type="checkbox"
+              id="meat_items"
+              name="farm_type[]"
+              value="meat_items"
+            />
+            <label for="meat_items">Meat Items</label><br />
+
+            <input
+              type="checkbox"
+              id="carb_items"
+              name="farm_type[]"
+              value="carb_items"
+            />
+            <label for="carb_items">Carb Items</label>
+          </div>
+
+          <!-- Date of Registration -->
+          <div class="form-group">
+            <label>Date of Registration</label>
+            <input
+              type="date"
+              class="form-control"
+              name="registration_date"
+              required
+            />
           </div>
 
           <!-- Submit Button -->
-          <button type="submit" class="btn-submit alvi">
-            <a href="../html_files/farmer.html">Submit</a>
-          </button>
+          <button type="submit" class="btn-submit alvi">Submit</button>
         </form>
       </div>
     </div>

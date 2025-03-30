@@ -121,3 +121,48 @@ textarea.form-control {
   text-decoration: none;
   color: white;
 }
+
+.farm-type-group {
+  max-width: 400px; /* Keeps this section compact */
+  font-family: Arial, sans-serif; /* Clean font */
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.farm-type-group > label:first-child {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.farm-type-group input[type="checkbox"] {
+  margin: 0 10px 0 0; /* Space between checkbox and label */
+  vertical-align: middle; /* Aligns with text */
+  cursor: pointer;
+}
+
+.farm-type-group label:not(:first-child) {
+  display: inline-block;
+  margin-bottom: 12px; /* Space between options */
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s ease; /* Smooth hover effect */
+}
+
+.farm-type-group input[type="checkbox"]:checked + label {
+  color: #2c7d2c; /* Green when checked */
+  font-weight: 500; /* Slight emphasis */
+}
+
+.farm-type-group label:not(:first-child):hover {
+  color: #000; /* Darker on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .farm-type-group {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}
