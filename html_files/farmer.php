@@ -1,7 +1,16 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "alvi1234hello", "SmartFarm") or die("Connection failed");
+
+$sql = "SELECT f.full_name, f.phone_number, f.registration_date, f.face_image, 
+        GROUP_CONCAT(ft.farm_type_name SEPARATOR ', ') AS farm_types
+        FROM farmers f
+        LEFT JOIN farmer_farm_types fft ON f.farmer_id = fft.farmer_id
+        LEFT JOIN farm_types ft ON fft.farm_type_id = ft.farm_type_id
+        GROUP BY f.farmer_id";
+$result = $conn->query($sql);
 if (isset($_POST['add_farmer'])) {
-    header("Location:add_farmer_form.php");
-    exit();
+  header("Location:add_farmer_form.php");
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -21,8 +30,7 @@ if (isset($_POST['add_farmer'])) {
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="../css_file/farmer.css" />
+    <link rel="stylesheet" href="../css_file/farmer.css" v=<?php echo time(); ?> />
   </head>
   <body>
     <!-- Navbar starts here -->
@@ -194,139 +202,35 @@ if (isset($_POST['add_farmer'])) {
 
     <!--Prouct card starts here-->
     <div class="product-card-div_down">
-      <!--First products-->
-
-      <div class="product-card_down">
-        <div class="product-image_down">
-          <img src="../IMG/top-seller-1.png" alt="Russet Idaho Potatoes" />
-        </div>
-        <div class="product-details_down">
-          <p class="category_down">Vegetables</p>
-          <h3 class="price_down">Ahmad Fahmid</h3>
-          <p class="product-title_down">
-            Russet Idaho Potatoes <br />
-            Fresh Premium Fruit and...
-          </p>
-          <div class="rating_down">
-            <span class="stars_down">⭐⭐⭐⭐⭐</span>
-            <span class="rating-value_down">(5.00)</span>
-          </div>
-        </div>
-        <div class="wishlist_down">
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-      <!--second products-->
-
-      <div class="product-card_down">
-        <div class="product-image_down">
-          <img src="../IMG/top-seller-2.png" alt="Russet Idaho Potatoes" />
-        </div>
-        <div class="product-details_down">
-          <p class="category_down">Vegetables</p>
-          <h3 class="price_down">Fahmid Foysal</h3>
-          <p class="product-title_down">
-            Russet Idaho Potatoes <br />
-            Fresh Premium Fruit and...
-          </p>
-          <div class="rating_down">
-            <span class="stars_down">⭐⭐⭐⭐⭐</span>
-            <span class="rating-value_down">(5.00)</span>
-          </div>
-        </div>
-        <div class="wishlist_down">
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-      <!--third products-->
-
-      <div class="product-card_down">
-        <div class="product-image_down">
-          <img src="../IMG/top-seller-3.png" alt="Russet Idaho Potatoes" />
-        </div>
-        <div class="product-details_down">
-          <p class="category_down">Vegetables</p>
-          <h3 class="price_down">Shefa Tabbasum</h3>
-          <p class="product-title_down">
-            Russet Idaho Potatoes <br />
-            Fresh Premium Fruit and...
-          </p>
-          <div class="rating_down">
-            <span class="stars_down">⭐⭐⭐⭐⭐</span>
-            <span class="rating-value_down">(5.00)</span>
-          </div>
-        </div>
-        <div class="wishlist_down">
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-      <!--fourth products-->
-
-      <div class="product-card_down">
-        <div class="product-image_down">
-          <img src="../IMG/top-seller-4.png" alt="Russet Idaho Potatoes" />
-        </div>
-        <div class="product-details_down">
-          <p class="category_down">Vegetables</p>
-          <h3 class="price_down">Sadman Sakib</h3>
-          <p class="product-title_down">
-            Nigga ami kaj <br />
-            kori ar chusi and...
-          </p>
-          <div class="rating_down">
-            <span class="stars_down">⭐⭐⭐⭐⭐</span>
-            <span class="rating-value_down">(5.00)</span>
-          </div>
-        </div>
-        <div class="wishlist_down">
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-      <!--fifth products-->
-
-      <div class="product-card_down">
-        <div class="product-image_down">
-          <img src="../IMG/top-seller-1.png" alt="Russet Idaho Potatoes" />
-        </div>
-        <div class="product-details_down">
-          <p class="category_down">Vegetables</p>
-          <h3 class="price_down">Wasif Ahmed</h3>
-          <p class="product-title_down">
-            Russet Idaho Potatoes <br />
-            Fresh Premium Fruit and...
-          </p>
-          <div class="rating_down">
-            <span class="stars_down">⭐⭐⭐⭐⭐</span>
-            <span class="rating-value_down">(5.00)</span>
-          </div>
-        </div>
-        <div class="wishlist_down">
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-      <!--sixth products-->
-
-      <div class="product-card_down">
-        <div class="product-image_down">
-          <img src="../IMG/top-seller-2.png" alt="Russet Idaho Potatoes" />
-        </div>
-        <div class="product-details_down">
-          <p class="category_down">Vegetables</p>
-          <h3 class="price_down">Atahar hossain</h3>
-          <p class="product-title_down">
-            Russet Idaho Potatoes <br />
-            Fresh Premium Fruit and...
-          </p>
-          <div class="rating_down">
-            <span class="stars_down">⭐⭐⭐⭐⭐</span>
-            <span class="rating-value_down">(5.00)</span>
-          </div>
-        </div>
-        <div class="wishlist_down">
-          <i class="far fa-heart"></i>
-        </div>
-      </div>
-    </div>
+    <?php
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $image_path = $row['face_image'] ? "../uploads/" . $row['face_image'] : "IMG/top-seller-1.png";
+    ?>
+            <div class="product-card_down">
+                <div class="product-image_down">
+                    <img src="<?php echo $image_path; ?>" alt="<?php echo $row['full_name']; ?>">
+                </div>
+                <div class="product-details_down">
+                    <p class="category_down"><?php echo $row['farm_types'] ?: 'No farm types'; ?></p>
+                    <h3 class="price_down"><?php echo $row['full_name']; ?></h3>
+                    <p class="product-title_down">
+                        <?php echo $row['phone_number']; ?> <br>
+                        <?php echo $row['registration_date']; ?>
+                    </p>
+                </div>
+                <div class="wishlist_down">
+                    <i class="far fa-heart"></i>
+                </div>
+            </div>
+    <?php
+        }
+    } else {
+        echo "<p>No farmers found.</p>";
+    }
+    $conn->close();
+    ?>
+</div>
     <!--Prouct card ends here-->
     <!--Footer starts here-->
     <footer class="footer">
@@ -385,12 +289,8 @@ if (isset($_POST['add_farmer'])) {
         </div>
       </div>
     </footer>
-
+    <?php $conn->close(); ?>
     <!--Footer ends here-->
-    <script
-      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-      type="module"
-    ></script>
     <script
       src="https://kit.fontawesome.com/85fcd39f72.js"
       crossorigin="anonymous"
@@ -405,6 +305,6 @@ if (isset($_POST['add_farmer'])) {
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
-
   </body>
+  
 </html>
