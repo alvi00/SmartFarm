@@ -2,7 +2,7 @@
 $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $product_name = $_POST['product_name'];
+    $product_type_id = $_POST['product_type_id'];
     $weight_kg = $_POST['weight_kg'];
     $price_tk = $_POST['price_tk'];
     $farmer_id = $_POST['farmer_id'];
@@ -10,20 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
     $entry_date = $_POST['entry_date'];
 
-    // Handle file upload
-    if ($_FILES["product_image"]["error"] == UPLOAD_ERR_OK) {
-        $product_image = $_FILES["product_image"]["name"];
-        $target_dir = "../uploads/";
-        $target_file = $target_dir . basename($product_image);
-        move_uploaded_file($_FILES["product_image"]["tmp_name"], $target_file);
-    } else {
-        $product_image = ""; // Default or handle error as needed
-    }
-
-    $sql = "INSERT INTO products (product_name, weight_kg, price_tk, farmer_id, farm_type_id, description, entry_date, product_image)
-            VALUES ('$product_name', '$weight_kg', '$price_tk', '$farmer_id', '$farm_type_id', '$description', '$entry_date', '$product_image')";
+    $sql = "INSERT INTO products (weight_kg, price_tk, product_type_id, farmer_id, farm_type_id, description, entry_date)
+            VALUES ('$weight_kg', '$price_tk', '$product_type_id', '$farmer_id', '$farm_type_id', '$description', '$entry_date')";
     if ($conn->query($sql)) {
-        header("Location: ../farmer.php"); // Redirect to farmer.php in root
+        header("Location: farmer.php"); // Redirect to farmer.php in root
         exit();
     } else {
         echo "Error: " . $conn->error;
@@ -48,10 +38,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="../IMG/LOGO DESIGN-01.png" alt="Company Logo" />
             </div>
             <h2>Add Product Form</h2>
-            <form class="product-form" method="POST" enctype="multipart/form-data">
+            <form class="product-form" method="POST">
                 <div class="form-group">
-                    <label>Product Name</label>
-                    <input type="text" class="form-control" name="product_name" placeholder="Enter product name" required />
+                    <label>Product</label>
+                    <select class="form-control" name="product_type_id" required>
+                        <option value="" disabled selected>Select a product</option>
+                        <?php
+                        $products = $conn->query("SELECT product_type_id, product_name FROM product_types");
+                        while ($row = $products->fetch_assoc()) {
+                            echo "<option value='{$row['product_type_id']}'>{$row['product_name']}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Weight (kg)</label>
@@ -88,10 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label>Description</label>
                     <textarea class="form-control" name="description" placeholder="Enter product description" rows="3" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Product Image</label>
-                    <input type="file" class="form-control" name="product_image" required />
                 </div>
                 <div class="form-group">
                     <label>Product Entry Date</label>
