@@ -109,7 +109,6 @@ textarea.form-control {
 }
 
 .alvi {
-  background-color: #28a745;
   color: white;
 }
 
@@ -165,4 +164,10 @@ textarea.form-control {
     max-width: 100%;
     padding: 0 15px;
   }
+}
+
+.go_to_farmer {
+  text-decoration: none;
+  color: white;
+  background-color: #1f6d30;
 }

@@ -1,7 +1,5 @@
 CREATE DATABASE smartfarm;
 USE smartfarm;
-
--- this part is for the add farmer form starts here 
 CREATE TABLE farmers (
     farmer_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(255) NOT NULL,
@@ -9,7 +7,8 @@ CREATE TABLE farmers (
     address TEXT NOT NULL,
     nationality VARCHAR(100) NOT NULL,
     email VARCHAR(100),
-    registration_date DATE NOT NULL
+    registration_date DATE NOT NULL,
+    face_image VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE farm_types (
@@ -18,14 +17,7 @@ CREATE TABLE farm_types (
 );
 
 INSERT INTO farm_types (farm_type_name)
-VALUES
-('Vegetables'),
-('Fresh Food'),
-('Dairy Items'),
-('Fish Items'),
-('Meat Items'),
-('Carb Items');
-
+VALUES ('Vegetables'), ('Fresh Food'), ('Dairy Items'), ('Fish Items'), ('Meat Items'), ('Carb Items');
 
 CREATE TABLE farmer_farm_types (
     farmer_id INT,
@@ -34,7 +26,5 @@ CREATE TABLE farmer_farm_types (
     FOREIGN KEY (farmer_id) REFERENCES farmers(farmer_id) ON DELETE CASCADE,
     FOREIGN KEY (farm_type_id) REFERENCES farm_types(farm_type_id) ON DELETE CASCADE
 );
-
-
-
--- this part is for the add farmer form ends here 
+select *from farmers;
+select *from farmer_farm_types;

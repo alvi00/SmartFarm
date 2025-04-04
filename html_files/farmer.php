@@ -1,3 +1,9 @@
+<?php
+if (isset($_POST['add_farmer'])) {
+    header("Location:add_farmer_form.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,10 +48,13 @@
             <li>
               <button class="dropdown-item" type="button">Add Products</button>
             </li>
+            
             <li>
-              <button class="dropdown-item add_farmer" type="button">
-                Add Farmer
+             <form method="POST">
+              <button class="dropdown-item add_farmer" type="submit" name="add_farmer">
+                 Add Farmer
               </button>
+              </form>
             </li>
           </ul>
         </div>
@@ -397,6 +406,5 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="../js file/farmer.js"></script>
   </body>
 </html>
