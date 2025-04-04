@@ -1,0 +1,675 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
+}
+
+/* navar css start here */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  padding-top: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  margin-bottom: 0;
+}
+
+.logo a img {
+  width: auto;
+  height: 60px;
+}
+
+.dropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-bars-staggered {
+  padding: 0 10px 0 5px;
+}
+
+.fa-angle-down {
+  padding: 0 10px 0 15px;
+}
+
+.search-form {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-input {
+  width: 100%;
+  padding-right: 40px;
+  border-radius: 20px;
+  border: 1px solid #28a745;
+  padding: 10px;
+}
+
+.search-button {
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f8c519;
+  border: none;
+  color: black;
+  cursor: pointer;
+  padding: 8px 15px 8px 9px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.search-button i {
+  font-size: 16px;
+  padding: 2.5px 0 0 4px;
+}
+
+.fa-user {
+  background-color: #e0f0e6;
+  padding: 10px 11px;
+  font-size: 13px;
+  border-radius: 50%;
+}
+
+.fa-grip-lines-vertical {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.fa-heart,
+.fa-cart-shopping,
+.fa-bars {
+  font-size: 20px;
+}
+
+.search-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text p {
+  margin: 0;
+  padding-top: 1px;
+  font-size: 16px;
+}
+
+.icons-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 769px) {
+  /* Hide mobile elements on desktop */
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop elements on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Ensure mobile-only elements are visible inside offcanvas */
+  .offcanvas-body .mobile-only {
+    display: block !important;
+  }
+  .navbar {
+    background-color: #f7f7f7;
+    overflow-y: none;
+  }
+  .logo a img {
+    width: auto;
+    height: 40px;
+  }
+  .fa-user {
+    background-color: #e0f0e6;
+    padding: 10px 11px;
+    font-size: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .fa-grip-lines-vertical {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .fa-heart,
+  .fa-cart-shopping,
+  .fa-bars {
+    font-size: 20px;
+  }
+  .fa-bars {
+    padding-right: 20px;
+  }
+}
+.offcanvas-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* 
+.middle-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: blue;
+}
+
+.middle-text ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+} */
+/* navar css ends here */
+
+.alvi {
+  background-color: #28a745;
+  color: white;
+}
+
+.alvi:hover {
+  background-color: #1f6d30;
+}
+
+.alvi a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #1b774d;
+  color: white;
+  padding: 40px 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  width: 20%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.logo-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-section img {
+  width: 40px;
+}
+
+.social-icons i {
+  margin-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 8px 0;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  color: #ffcc00;
+}
+
+.newsletter-input {
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.newsletter-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.newsletter-input button {
+  background: #ffcc00;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.app-icons img {
+  width: 120px;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+.middle-text {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+
+.middle-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.middle-text li {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
+}
+
+.middle-text li:hover {
+  color: #28a745;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  /* Smooth transition */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  padding-right: 20px;
+}
+
+.dropdown li:last-child {
+  border-bottom: none;
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+/* When dropdown is active */
+.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .middle-text {
+    width: 50%;
+    position: absolute;
+    left: 0;
+  }
+
+  .logo a img {
+    display: none;
+  }
+  .fa-bars {
+    position: absolute;
+    right: 0;
+    top: 30px;
+  }
+}
+
+/*Hero Section starts here*/
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url("../IMG/office_hero_Section_bg.jpg") center/cover no-repeat;
+  background-position: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white; /* Make sure text color stands out */
+  font-family: "Arial", sans-serif; /* Change to a modern, easy-to-read font */
+}
+
+/* Dark overlay with blur */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Slightly lighter dark shade */
+  backdrop-filter: blur(8px); /* Add more blur for a modern touch */
+  z-index: 0; /* Ensure it's below the content */
+}
+
+/* Ensure text appears above the overlay */
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  color: whitesmoke;
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Make the text more impactful */
+  letter-spacing: 2px; /* Add a little letter spacing for style */
+  opacity: 0; /* Hide initially */
+  animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* Add a delay to the second h2 for a staggered effect */
+.hero h2:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.hero p {
+  color: white;
+  font-size: 1.2rem;
+  max-width: 600px; /* Limiting width for readability */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 300; /* Lighter text for body */
+  opacity: 0; /* Hide initially */
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.6s; /* Slight delay after headings */
+}
+
+/* Glowing effect for the headings */
+.hero h2:hover {
+  text-shadow: 0 0 10px #1b774d, 0 0 20px #1f6d30;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Keyframes for fade-in and slide-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to normal position */
+  }
+}
+
+.button {
+  background-color: #28a745; /* Bright, attention-grabbing color */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px; /* Rounded corners for a modern look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-transform: uppercase; /* Make the button text uppercase */
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #1f6d30; /* Slightly darker on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Ensure button has a nice spacing from the text */
+.hero .button {
+  margin-top: 20px;
+}
+
+/*Hero Section ends here*/
+
+/* numbers section starts here */
+.counter-section {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #1b774d, #28a745);
+  color: white;
+  text-align: center;
+}
+
+.counter-box {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  min-width: 120px;
+}
+
+.counter-box h2 {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .counter-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* numbers section ends here */
+/* about us  section stars here */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #1b774d, #28a745);
+  color: white;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.learn-more {
+  background: white;
+  color: #1b774d;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+}
+
+/* about us section ends here */
+/* contact us  section Starts here */
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #1b774d, #28a745);
+  color: white;
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-content h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.contact-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input,
+.input-box textarea {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+/* Animation for Inputs */
+.input-box input:focus ~ label,
+.input-box textarea:focus ~ label,
+.input-box input:valid ~ label,
+.input-box textarea:valid ~ label {
+  top: 5px;
+  font-size: 12px;
+  color: white;
+}
+
+/* Submit Button */
+.send-btn {
+  background: white;
+  color: #1b774d;
+  padding: 12px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 5%;
+  }
+}
+
+/* contact us section ends here */

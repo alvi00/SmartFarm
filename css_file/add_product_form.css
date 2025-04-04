@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Form Container */
+  .product-form-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  /* Form Card */
+  .product-form-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .product-form-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Logo */
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  /* Form Title */
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+  
+  /* Form Elements */
+  .product-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .product-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #34495e;
+  }
+  
+  .product-form .form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .product-form .form-control:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  }
+  
+  /* Submit Button */
+  .btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .btn-submit:hover {
+    background-color: #2ecc71;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .product-form-container {
+      padding: 15px;
+    }
+    
+    .product-form-card {
+      padding: 20px;
+    }
+    
+    h2 {
+      font-size: 22px;
+    }
+  }
