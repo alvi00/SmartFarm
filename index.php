@@ -1,3 +1,9 @@
+<?php
+if (isset($_POST['go_to_farmer'])) {
+  header("Location:html_files/farmer.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -163,9 +169,11 @@
                     >Official Website</a
                   >
                 </button>
-                <button class="btn w-100 mb-2 alvi">
-                  <a href="html_files/farmer.html">Be a Farmer</a>
+                <form method="POST">
+                <button class="btn w-100 mb-2 alvi" name="go_to_farmer" type="submit">
+                  <a>Be a Farmer</a>
                 </button>
+                </form>
               </div>
             </div>
           </div>

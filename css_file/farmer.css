@@ -436,10 +436,11 @@ ul li a:hover {
 
 /* Product Image */
 .product-image_down img {
-  width: 100%;
-  height: 100%;
+  width: auto !important;
+  height: 180px !important;
   object-fit: contain;
   border-radius: 10px;
+  background-color: green;
 }
 /* Product Details */
 .product-details_down {
