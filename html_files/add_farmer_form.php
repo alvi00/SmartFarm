@@ -1,8 +1,8 @@
 <?php
     $server = "localhost";
     $username = "root";
-    $password = "alvi1234hello";
-    $database = "SmartFarm";
+    $password = "F@him7080!";
+    $database = "smartfarm";
 
     // Create connection
     $conn = mysqli_connect($server, $username, $password, $database);
