@@ -63,6 +63,17 @@ CREATE TABLE products (
     FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id) ON DELETE RESTRICT
 );
 
+-- cart section
+CREATE TABLE cart (
+    cart_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_type_id INT NOT NULL,
+    quantity_kg INT NOT NULL CHECK (quantity_kg > 0),
+    unit_price_tk DECIMAL(10,2) NOT NULL CHECK (unit_price_tk >= 0),
+    total_price_tk DECIMAL(10,2) NOT NULL CHECK (total_price_tk >= 0),
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id) ON DELETE CASCADE
+);
+
 -- Verify setup
 SHOW TABLES;
 SELECT * FROM farmers;
@@ -70,3 +81,4 @@ SELECT * FROM farmer_farm_types;
 SELECT * FROM farm_types;
 SELECT * FROM products;
 SELECT * FROM product_types;
+SELECT * FROM cart;

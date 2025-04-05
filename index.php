@@ -7,13 +7,37 @@ if (isset($_POST['go_to_farmer'])) {
 }
 
 // Query for Featured Products (Option C: Aggregate by product_type_id)
-$sql = "SELECT pt.product_name, pt.product_image,p.product_type_id, ft.farm_type_name,
-        SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
-        FROM products p
-        JOIN product_types pt ON p.product_type_id = pt.product_type_id
-        JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
-        GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
-$result = $conn->query($sql);
+$sql_featured = "SELECT pt.product_name, pt.product_image, p.product_type_id, ft.farm_type_name,
+                SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
+                FROM products p
+                JOIN product_types pt ON p.product_type_id = pt.product_type_id
+                JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
+                GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
+$result_featured = $conn->query($sql_featured);
+
+// Query for cart count
+$sql_cart = "SELECT COUNT(*) AS cart_count FROM cart";
+$result_cart = $conn->query($sql_cart);
+$cart_count = $result_cart->fetch_assoc()['cart_count'];
+
+// Query for Top Sellers
+$sql_sellers = "SELECT f.farmer_id, f.full_name, f.face_image, 
+                SUM(p.weight_kg) AS total_weight
+                FROM farmers f
+                LEFT JOIN products p ON f.farmer_id = p.farmer_id
+                GROUP BY f.farmer_id, f.full_name, f.face_image
+                ORDER BY total_weight DESC
+                LIMIT 4";
+$result_sellers = $conn->query($sql_sellers);
+
+// Query for Our Products
+$sql_products = "SELECT pt.product_name, p.product_type_id, pt.product_image, ft.farm_type_name,
+                 SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
+                 FROM products p
+                 JOIN product_types pt ON p.product_type_id = pt.product_type_id
+                 JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
+                 GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
+$result_products = $conn->query($sql_products);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +77,14 @@ $result = $conn->query($sql);
             <div class="icons-right">
                 <div class="user-icon"><i class="fa-regular fa-user"></i></div>
                 <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
-                <div class="shopping-cart-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="shopping-cart-icon">
+                    <a href="html_files/add_to_cart.php">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <?php if ($cart_count > 0) { ?>
+                            <span class="cart-count"><?php echo $cart_count; ?></span>
+                        <?php } ?>
+                    </a>
+                </div>
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                     <div class="hamburger-menu"><i class="fa-solid fa-bars"></i></div>
                 </button>
@@ -95,12 +126,30 @@ $result = $conn->query($sql);
 
     <!-- Vertical starts here -->
     <div class="vertical-products">
-        <div class="items_all"><div class="image_of_the_item"><img src="IMG/vegetable.png" alt="item" /></div><div class="item_description"><h6>Vegetables</h6><p>6 Products</p></div></div>
-        <div class="items_all"><div class="image_of_the_item"><img src="IMG/fruits.png" alt="item" /></div><div class="item_description"><h6>Fresh Fruits</h6><p>8 Products</p></div></div>
-        <div class="items_all"><div class="image_of_the_item"><img src="IMG/Milk.png" alt="item" /></div><div class="item_description"><h6>Dairy Items</h6><p>5 Products</p></div></div>
-        <div class="items_all"><div class="image_of_the_item"><img src="IMG/fish.png" alt="item" /></div><div class="item_description"><h6>Fish Items</h6><p>6 Products</p></div></div>
-        <div class="items_all"><div class="image_of_the_item"><img src="IMG/meat.png" alt="item" /></div><div class="item_description"><h6>Meat Items</h6><p>6 Products</p></div></div>
-        <div class="items_all"><div class="image_of_the_item"><img src="IMG/vegetable.png" alt="item" /></div><div class="item_description"><h6>Carb Items</h6><p>6 items</p></div></div>
+        <div class="items_all">
+            <div class="image_of_the_item"><img src="IMG/vegetable.png" alt="item" /></div>
+            <div class="item_description"><h6>Vegetables</h6><p>6 Products</p></div>
+        </div>
+        <div class="items_all">
+            <div class="image_of_the_item"><img src="IMG/fruits.png" alt="item" /></div>
+            <div class="item_description"><h6>Fresh Fruits</h6><p>8 Products</p></div>
+        </div>
+        <div class="items_all">
+            <div class="image_of_the_item"><img src="IMG/Milk.png" alt="item" /></div>
+            <div class="item_description"><h6>Dairy Items</h6><p>5 Products</p></div>
+        </div>
+        <div class="items_all">
+            <div class="image_of_the_item"><img src="IMG/fish.png" alt="item" /></div>
+            <div class="item_description"><h6>Fish Items</h6><p>6 Products</p></div>
+        </div>
+        <div class="items_all">
+            <div class="image_of_the_item"><img src="IMG/meat.png" alt="item" /></div>
+            <div class="item_description"><h6>Meat Items</h6><p>6 Products</p></div>
+        </div>
+        <div class="items_all">
+            <div class="image_of_the_item"><img src="IMG/vegetable.png" alt="item" /></div>
+            <div class="item_description"><h6>Carb Items</h6><p>6 items</p></div>
+        </div>
     </div>
     <!-- Closing vertical-products -->
 
@@ -159,10 +208,10 @@ $result = $conn->query($sql);
     <!-- Featured products starts here -->
     <div class="featured-products">
         <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if ($result_featured->num_rows > 0) {
+            while ($row = $result_featured->fetch_assoc()) {
                 $image_path = "uploads/" . $row['product_image'];
-                $avg_price = number_format($row['avg_price'], 2); // Round to 2 decimals
+                $avg_price = number_format($row['avg_price'], 2);
                 $total_weight = $row['total_weight'];
         ?>
             <div class="product-card">
@@ -175,7 +224,6 @@ $result = $conn->query($sql);
                 </div>
                 <div class="weight-options">
                     <button><?php echo $total_weight; ?> kg</button>
-                    <!-- Add more buttons if you want static options later -->
                 </div>
                 <div class="product-price">
                     <span class="price"><?php echo $avg_price; ?> TK/kg</span>
@@ -187,9 +235,6 @@ $result = $conn->query($sql);
                     <span>⭐⭐⭐⭐⭐</span>
                     <span class="rating-score">(5.00)</span>
                 </div>
-                <!-- <button class="select-options">
-                    <i class="fa-solid fa-cart-shopping"></i> Select Options
-                </button> -->
                 <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
                     <i class="fa-solid fa-cart-shopping"></i> Select Options
                 </a>
@@ -197,7 +242,6 @@ $result = $conn->query($sql);
         <?php
             }
         } else {
-            // Fallback if no products exist
         ?>
             <div class="product-card">
                 <div class="product-header">
@@ -224,73 +268,63 @@ $result = $conn->query($sql);
             </div>
         <?php
         }
-        $conn->close();
         ?>
     </div>
     <!-- Featured products ends here -->
 
     <!-- Top sellers starts here -->
-    <div class="top-sellers"><h3>Top Sellers</h3></div>
+    <div class="top-sellers">
+        <h3>Top Sellers</h3>
+    </div>
     <div class="cards-of-sellers">
-    <?php
-    $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
-    $sql = "SELECT f.farmer_id, f.full_name, f.face_image, 
-            SUM(p.weight_kg) AS total_weight
-            FROM farmers f
-            LEFT JOIN products p ON f.farmer_id = p.farmer_id
-            GROUP BY f.farmer_id, f.full_name, f.face_image
-            ORDER BY total_weight DESC
-            LIMIT 4"; // Top 4 farmers
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $image_path = "uploads/" . $row['face_image'];
-            $total_weight = $row['total_weight'] ?: 0; // Handle NULL if no products
-    ?>
-        <div class="card mb-3 shadow-sm" style="max-width: 400px; border-radius: 10px; overflow: hidden">
-            <div class="row g-0 align-items-center">
-                <div class="col-4">
-                    <img src="<?php echo $image_path; ?>" class="img-fluid rounded-start" alt="Profile Image" />
-                </div>
-                <div class="col-7">
-                    <div class="card-body py-2 px-2">
-                        <h5 class="card-title mb-1">Featured</h5>
-                        <p class="card-text mb-1 text-muted"><?php echo $row['full_name']; ?></p>
-                        <div class="rating d-flex align-items-center">
-                            <span class="text-warning">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-score ms-1 text-muted" style="font-size: 12px">(5.00)</span>
+        <?php
+        if ($result_sellers->num_rows > 0) {
+            while ($row = $result_sellers->fetch_assoc()) {
+                $image_path = "uploads/" . $row['face_image'];
+                $total_weight = $row['total_weight'] ?: 0;
+        ?>
+            <div class="card mb-3 shadow-sm" style="max-width: 400px; border-radius: 10px; overflow: hidden">
+                <div class="row g-0 align-items-center">
+                    <div class="col-4">
+                        <img src="<?php echo $image_path; ?>" class="img-fluid rounded-start" alt="Profile Image" />
+                    </div>
+                    <div class="col-7">
+                        <div class="card-body py-2 px-2">
+                            <h5 class="card-title mb-1">Featured</h5>
+                            <p class="card-text mb-1 text-muted"><?php echo $row['full_name']; ?></p>
+                            <div class="rating d-flex align-items-center">
+                                <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score ms-1 text-muted" style="font-size: 12px">(5.00)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php
+        <?php
+            }
+        } else {
+        ?>
+            <div class="card mb-3 shadow-sm" style="max-width: 400px; border-radius: 10px; overflow: hidden">
+                <div class="row g-0 align-items-center">
+                    <div class="col-4">
+                        <img src="IMG/top-seller-1.png" class="img-fluid rounded-start" alt="Profile Image" />
+                    </div>
+                    <div class="col-7">
+                        <div class="card-body py-2 px-2">
+                            <h5 class="card-title mb-1">Featured</h5>
+                            <p class="card-text mb-1 text-muted">No Top Sellers Yet</p>
+                            <div class="rating d-flex align-items-center">
+                                <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-score ms-1 text-muted" style="font-size: 12px">(5.00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php
         }
-    } else {
-    ?>
-        <div class="card mb-3 shadow-sm" style="max-width: 400px; border-radius: 10px; overflow: hidden">
-            <div class="row g-0 align-items-center">
-                <div class="col-4">
-                    <img src="IMG/top-seller-1.png" class="img-fluid rounded-start" alt="Profile Image" />
-                </div>
-                <div class="col-7">
-                    <div class="card-body py-2 px-2">
-                        <h5 class="card-title mb-1">Featured</h5>
-                        <p class="card-text mb-1 text-muted">No Top Sellers Yet</p>
-                        <div class="rating d-flex align-items-center">
-                            <span class="text-warning">⭐⭐⭐⭐⭐</span>
-                            <span class="rating-score ms-1 text-muted" style="font-size: 12px">(5.00)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php
-    }
-    $conn->close();
-    ?>
-</div>
+        ?>
+    </div>
     <!-- Top sellers ends here -->
 
     <!-- Divider image starts here -->
@@ -298,70 +332,61 @@ $result = $conn->query($sql);
     <!-- Divider image ends here -->
 
     <!-- Our products starts here -->
-    <div class="top-sellers"><h3>Our Products</h3></div>
-    <!-- Product card starts here (left static for now) -->
+    <div class="top-sellers">
+        <h3>Our Products</h3>
+    </div>
     <div class="product-card-div_down">
-    <?php
-    $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
-    $sql = "SELECT pt.product_name, p.product_type_id, pt.product_image, ft.farm_type_name,
-            SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
-            FROM products p
-            JOIN product_types pt ON p.product_type_id = pt.product_type_id
-            JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
-            GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $image_path = "uploads/" . $row['product_image'];
-            $avg_price = number_format($row['avg_price'], 2);
-            $total_weight = $row['total_weight'];
-    ?>
-        <div class="product-card_down">
-            <div class="product-image_down">
-                <img src="<?php echo $image_path; ?>" alt="<?php echo $row['product_name']; ?>" />
-            </div>
-            <div class="product-details_down">
-                <p class="category_down"><?php echo $row['farm_type_name']; ?></p>
-                <h3 class="price_down"><?php echo $avg_price; ?> TK/kg</h3>
-                <p class="product-title_down">
-                    <?php echo $row['product_name']; ?> <br />
-                    <?php echo $total_weight; ?> kg available
-                </p>
-                <div class="rating_down">
-                    <span class="stars_down">⭐⭐⭐⭐⭐</span>
-                    <span class="rating-value_down">(5.00)</span>
+        <?php
+        if ($result_products->num_rows > 0) {
+            while ($row = $result_products->fetch_assoc()) {
+                $image_path = "uploads/" . $row['product_image'];
+                $avg_price = number_format($row['avg_price'], 2);
+                $total_weight = $row['total_weight'];
+        ?>
+            <div class="product-card_down">
+                <div class="product-image_down">
+                    <img src="<?php echo $image_path; ?>" alt="<?php echo $row['product_name']; ?>" />
                 </div>
-                <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
-                <i class="fa-solid fa-cart-shopping"></i> Select Options
-                </a>
+                <div class="product-details_down">
+                    <p class="category_down"><?php echo $row['farm_type_name']; ?></p>
+                    <h3 class="price_down"><?php echo $avg_price; ?> TK/kg</h3>
+                    <p class="product-title_down">
+                        <?php echo $row['product_name']; ?> <br />
+                        <?php echo $total_weight; ?> kg available
+                    </p>
+                    <div class="rating_down">
+                        <span class="stars_down">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-value_down">(5.00)</span>
+                    </div>
+                    <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
+                        <i class="fa-solid fa-cart-shopping"></i> Select Options
+                    </a>
+                </div>
+                <div class="wishlist_down"><i class="far fa-heart"></i></div>
             </div>
-            <div class="wishlist_down"><i class="far fa-heart"></i></div>
-        </div>
-    <?php
+        <?php
+            }
+        } else {
+        ?>
+            <div class="product-card_down">
+                <div class="product-image_down">
+                    <img src="IMG/featured_product-1.png" alt="No Products" />
+                </div>
+                <div class="product-details_down">
+                    <p class="category_down">N/A</p>
+                    <h3 class="price_down">N/A</h3>
+                    <p class="product-title_down">No Products Available</p>
+                    <div class="rating_down">
+                        <span class="stars_down">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-value_down">(5.00)</span>
+                    </div>
+                </div>
+                <div class="wishlist_down"><i class="far fa-heart"></i></div>
+            </div>
+        <?php
         }
-    } else {
-    ?>
-        <div class="product-card_down">
-            <div class="product-image_down">
-                <img src="IMG/featured_product-1.png" alt="No Products" />
-            </div>
-            <div class="product-details_down">
-                <p class="category_down">N/A</p>
-                <h3 class="price_down">N/A</h3>
-                <p class="product-title_down">No Products Available</p>
-                <div class="rating_down">
-                    <span class="stars_down">⭐⭐⭐⭐⭐</span>
-                    <span class="rating-value_down">(5.00)</span>
-                </div>
-            </div>
-            <div class="wishlist_down"><i class="far fa-heart"></i></div>
-        </div>
-    <?php
-    }
-    $conn->close();
-    ?>
-</div>
+        ?>
+    </div>
     <!-- Product card ends here -->
 
     <!-- Footer starts here -->
@@ -380,9 +405,39 @@ $result = $conn->query($sql);
                     <i class="fab fa-tiktok"></i>
                 </div>
             </div>
-            <div class="footer-section"><h3>Quick Links</h3><ul><li><a href="#">Smartphones</a></li><li><a href="#">Headphones</a></li><li><a href="#">Laptop & Tablet</a></li><li><a href="#">Monitors</a></li><li><a href="#">Printers</a></li><li><a href="#">Gadgets</a></li></ul></div>
-            <div class="footer-section"><h3>Accounts</h3><ul><li><a href="#">My Orders</a></li><li><a href="#">Cart</a></li><li><a href="#">Checkout</a></li><li><a href="#">Compare</a></li><li><a href="#">My Account</a></li><li><a href="#">Wishlist</a></li></ul></div>
-            <div class="footer-section"><h3>Privacy Policy</h3><ul><li><a href="#">Returns & Exchanges</a></li><li><a href="#">Payment Terms</a></li><li><a href="#">Delivery Terms</a></li><li><a href="#">Payment & Pricing</a></li><li><a href="#">Terms Of Use</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Headphones</a></li>
+                    <li><a href="#">Laptop & Tablet</a></li>
+                    <li><a href="#">Monitors</a></li>
+                    <li><a href="#">Printers</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Accounts</h3>
+                <ul>
+                    <li><a href="#">My Orders</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Checkout</a></li>
+                    <li><a href="#">Compare</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Privacy Policy</h3>
+                <ul>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Payment Terms</a></li>
+                    <li><a href="#">Delivery Terms</a></li>
+                    <li><a href="#">Payment & Pricing</a></li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
     <!-- Footer ends here -->
@@ -392,3 +447,7 @@ $result = $conn->query($sql);
     <script src="index.js"></script>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>
