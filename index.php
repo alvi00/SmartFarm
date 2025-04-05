@@ -7,7 +7,7 @@ if (isset($_POST['go_to_farmer'])) {
 }
 
 // Query for Featured Products (Option C: Aggregate by product_type_id)
-$sql = "SELECT pt.product_name, pt.product_image, ft.farm_type_name,
+$sql = "SELECT pt.product_name, pt.product_image,p.product_type_id, ft.farm_type_name,
         SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
         FROM products p
         JOIN product_types pt ON p.product_type_id = pt.product_type_id
@@ -187,9 +187,12 @@ $result = $conn->query($sql);
                     <span>⭐⭐⭐⭐⭐</span>
                     <span class="rating-score">(5.00)</span>
                 </div>
-                <button class="select-options">
+                <!-- <button class="select-options">
                     <i class="fa-solid fa-cart-shopping"></i> Select Options
-                </button>
+                </button> -->
+                <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
+                    <i class="fa-solid fa-cart-shopping"></i> Select Options
+                </a>
             </div>
         <?php
             }
@@ -300,7 +303,7 @@ $result = $conn->query($sql);
     <div class="product-card-div_down">
     <?php
     $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
-    $sql = "SELECT pt.product_name, pt.product_image, ft.farm_type_name,
+    $sql = "SELECT pt.product_name, p.product_type_id, pt.product_image, ft.farm_type_name,
             SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
             FROM products p
             JOIN product_types pt ON p.product_type_id = pt.product_type_id
@@ -329,6 +332,9 @@ $result = $conn->query($sql);
                     <span class="stars_down">⭐⭐⭐⭐⭐</span>
                     <span class="rating-value_down">(5.00)</span>
                 </div>
+                <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
+                <i class="fa-solid fa-cart-shopping"></i> Select Options
+                </a>
             </div>
             <div class="wishlist_down"><i class="far fa-heart"></i></div>
         </div>
