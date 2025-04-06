@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "F@him7080!", "smartfarm") or die("Connection failed");
+$conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
 $sql = "SELECT f.full_name, f.phone_number, f.registration_date, f.face_image, 
         GROUP_CONCAT(ft.farm_type_name SEPARATOR ', ') AS farm_types

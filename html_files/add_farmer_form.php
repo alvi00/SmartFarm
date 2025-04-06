@@ -1,7 +1,7 @@
 <?php
     $server = "localhost";
     $username = "root";
-    $password = "F@him7080!";
+    $password = "alvi1234hello";
     $database = "smartfarm";
 
     // Create connection

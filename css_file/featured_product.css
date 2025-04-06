@@ -171,7 +171,6 @@ body {
 
 /* navar css ends here */
 
-
 /* Footer Styles */
 .footer {
   background-color: #1b774d;
@@ -284,7 +283,6 @@ ul li a:hover {
   color: white;
 }
 
-
 /* middle content stars here */
 /* ===== Main Content Container ===== */
 .middle-content {
@@ -303,7 +301,7 @@ ul li a:hover {
   background: white;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid #eee;
   width: 100%;
   max-width: 500px;
@@ -329,7 +327,7 @@ ul li a:hover {
 
 /* Hover Effects */
 .left_side:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px);
 }
 
@@ -340,7 +338,7 @@ ul li a:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .left_side {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -394,10 +392,10 @@ ul li a:hover {
   background: white;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 140px;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .middle-content .right_side h2 {
@@ -528,60 +526,60 @@ ul li a:hover {
 /* ===== Responsive Design ===== */
 @media (max-width: 1200px) {
   .middle-content {
-      gap: 30px;
-      padding: 40px;
+    gap: 30px;
+    padding: 40px;
   }
 }
 
 @media (max-width: 992px) {
   .middle-content {
-      flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .middle-content .right_side {
-      position: static;
+    position: static;
   }
 }
 
 @media (max-width: 768px) {
   .middle-content {
-      padding: 30px;
+    padding: 30px;
   }
-  
+
   .middle-content .middle_side h1 {
-      font-size: 1.9rem;
+    font-size: 1.9rem;
   }
 }
 
 @media (max-width: 576px) {
   .middle-content {
-      padding: 20px 15px;
-      gap: 25px;
+    padding: 20px 15px;
+    gap: 25px;
   }
-  
+
   .middle-content .right_side .cart-options {
-      flex-direction: column;
-      align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
-  
+
   .middle-content .right_side .quantity-controls {
-      display: flex;
-      width: 100%;
+    display: flex;
+    width: 100%;
   }
-  
+
   .middle-content .right_side .add-to-cart {
-      width: 100%;
-      margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
   }
 }
 
 /* Touch device adjustments */
 @media (hover: none) {
   .middle-content .left_side:active img {
-      transform: scale(1.03);
+    transform: scale(1.03);
   }
-  
+
   .middle-content .left_side:active {
-      transform: translateY(-2px);
+    transform: translateY(-2px);
   }
 }
