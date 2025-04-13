@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         // Verify password
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['user_id']; // Store user ID in session
-            header("Location: ../index.php");
+            header("Location: add_product_form.php");
             exit();
         } else {
             $error_message = "Invalid email or password.";
