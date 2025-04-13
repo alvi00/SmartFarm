@@ -1,31 +1,40 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
-$sql = "SELECT f.full_name, f.phone_number, f.registration_date, f.face_image, 
+// Get search term
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+// Fetch farmers
+$sql = "SELECT f.farmer_id, f.full_name, f.phone_number, f.registration_date, f.face_image, 
         GROUP_CONCAT(ft.farm_type_name SEPARATOR ', ') AS farm_types
         FROM farmers f
         LEFT JOIN farmer_farm_types fft ON f.farmer_id = fft.farmer_id
-        LEFT JOIN farm_types ft ON fft.farm_type_id = ft.farm_type_id
-        GROUP BY f.farmer_id";
+        LEFT JOIN farm_types ft ON fft.farm_type_id = ft.farm_type_id";
+if (!empty($search)) {
+    $search = mysqli_real_escape_string($conn, $search);
+    $sql .= " WHERE f.full_name LIKE '%$search%' OR ft.farm_type_name LIKE '%$search%'";
+}
+$sql .= " GROUP BY f.farmer_id";
 $result = $conn->query($sql);
 
 if (isset($_POST['add_farmer'])) {
-    header("Location: add_farmer_form.php");
+    header("Location: user_login_page.php");
     exit();
 }
 if (isset($_POST['add_products'])) {
-  header("Location: add_product_form.php");
-  exit();
+    header("Location: user_login_page.php");
+    exit();
 }
 
-
+$conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartFarm</title>
+    <title>SmartFarm - Farmers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -36,19 +45,18 @@ if (isset($_POST['add_products'])) {
     <nav>
         <div class="navbar">
             <div class="logo">
-                <a href="#"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
+                <a href="../index.php"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
             <div class="desktop-only dropdown">
                 <button class="btn all_catagories" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-bars-staggered"></i> Add New <i class="fa-solid fa-angle-down"></i>
                 </button>
                 <ul class="dropdown-menu">
-                
                     <li>
                         <form method="POST">
-                          <button class="dropdown-item" type="submit" name="add_products">Add Products</button>
+                            <button class="dropdown-item" type="submit" name="add_products">Add Products</button>
                         </form>
-                   </li>
+                    </li>
                     <li>
                         <form method="POST">
                             <button class="dropdown-item add_farmer" type="submit" name="add_farmer">Add Farmer</button>
@@ -56,11 +64,9 @@ if (isset($_POST['add_products'])) {
                     </li>
                 </ul>
             </div>
-            <form class="d-flex search-form desktop-only" role="search">
-                <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                <button class="btn search-button" type="submit">
-                    <div class="search-text"><p>Search</p><i class="fas fa-search"></i></div>
-                </button>
+            <form class="d-flex search-form desktop-only" method="GET" action="">
+                <input class="form-control search-input" type="search" name="search" placeholder="Search by Name or Farm Type" value="<?php echo htmlspecialchars($search); ?>" aria-label="Search" />
+                <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="icons-right">
                 <div class="user-icon"><i class="fa-regular fa-user"></i></div>
@@ -78,15 +84,21 @@ if (isset($_POST['add_products'])) {
                                 <i class="fa-solid fa-bars-staggered"></i> Add New <i class="fa-solid fa-angle-down"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Add Products</button></li>
-                                <li><button class="dropdown-item add_farmer" type="button">Add Farmer</button></li>
+                                <li>
+                                    <form method="POST">
+                                        <button class="dropdown-item" type="submit" name="add_products">Add Products</button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form method="POST">
+                                        <button class="dropdown-item add_farmer" type="submit" name="add_farmer">Add Farmer</button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
-                        <form class="d-flex search-form mobile-only mb-3" role="search">
-                            <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                            <button class="btn search-button" type="submit">
-                                <div class="search-text"><p>Search</p><i class="fas fa-search"></i></div>
-                            </button>
+                        <form class="d-flex search-form mobile-only mb-3" method="GET" action="">
+                            <input class="form-control search-input" type="search" name="search" placeholder="Search by Name or Farm Type" value="<?php echo htmlspecialchars($search); ?>" aria-label="Search" />
+                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <div class="offcanvas-buttons">
                             <button class="btn w-100 mb-2 alvi"><a href="../index.php">E-commerce</a></button>
@@ -117,18 +129,18 @@ if (isset($_POST['add_products'])) {
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $image_path = $row['face_image'] ? "../uploads/" . $row['face_image'] : "IMG/top-seller-1.png";
+                $image_path = $row['face_image'] ? "../Uploads/" . $row['face_image'] : "IMG/top-seller-1.png";
         ?>
                 <div class="product-card_down">
                     <div class="product-image_down">
-                        <img src="<?php echo $image_path; ?>" alt="<?php echo $row['full_name']; ?>">
+                        <img src="<?php echo htmlspecialchars($image_path); ?>" alt="<?php echo htmlspecialchars($row['full_name']); ?>">
                     </div>
                     <div class="product-details_down">
-                        <p class="category_down"><?php echo $row['farm_types'] ?: 'No farm types'; ?></p>
-                        <h3 class="price_down"><?php echo $row['full_name']; ?></h3>
+                        <p class="category_down"><?php echo htmlspecialchars($row['farm_types'] ?: 'No farm types'); ?></p>
+                        <h3 class="price_down"><?php echo htmlspecialchars($row['full_name']); ?></h3>
                         <p class="product-title_down">
-                            <?php echo $row['phone_number']; ?> <br>
-                            <?php echo $row['registration_date']; ?>
+                            <?php echo htmlspecialchars($row['phone_number']); ?> <br>
+                            <?php echo htmlspecialchars($row['registration_date']); ?>
                         </p>
                     </div>
                     <div class="wishlist_down">
@@ -138,9 +150,8 @@ if (isset($_POST['add_products'])) {
         <?php
             }
         } else {
-            echo "<p>No farmers found.</p>";
+            echo '<div class="no-results"><p>No search result found.</p></div>';
         }
-        $conn->close();
         ?>
     </div>
 

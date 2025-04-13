@@ -2,15 +2,21 @@
 // Database connection
 $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
+// Get search term
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+
 // Fetch employees
 $query = "SELECT full_name, designation, email, phone_number, blood_group, joining_date, profile_image FROM employees";
+if (!empty($search)) {
+    $search = mysqli_real_escape_string($conn, $search);
+    $query .= " WHERE full_name LIKE '%$search%' OR designation LIKE '%$search%'";
+}
 $result = mysqli_query($conn, $query);
 
 if (isset($_POST['go_to_login'])) {
-  header("Location: admin_login_page.php");
-  exit();
+    header("Location: admin_login_page.php");
+    exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -18,26 +24,22 @@ if (isset($_POST['go_to_login'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SmartFarm</title>
+    <title>SmartFarm - Employees</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../css_file/official_website_employee.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css_file/official_website_employee.css?v=<?php echo time(); ?>" />
 </head>
 <body>
     <!-- Navbar starts here -->
     <nav>
         <div class="navbar">
             <div class="logo">
-                <a href="#"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
+                <a href="../index.php"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
-            <form class="d-flex search-form desktop-only" role="search">
-                <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                <button class="btn search-button" type="submit">
-                    <div class="search-text">
-                        <p>Search</p>
-                        <i class="fas fa-search"></i>
-                    </div>
-                </button>
+            <form class="d-flex search-form desktop-only" method="GET" action="">
+                <input class="form-control search-input" type="search" name="search" placeholder="Search by Name or Designation" value="<?php echo htmlspecialchars($search); ?>" aria-label="Search" />
+                <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="icons-right">
                 <div class="user-icon">
@@ -54,14 +56,9 @@ if (isset($_POST['go_to_login'])) {
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form class="d-flex search-form mobile-only mb-3" role="search">
-                            <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                            <button class="btn search-button" type="submit">
-                                <div class="search-text">
-                                    <p>Search</p>
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </button>
+                        <form class="d-flex search-form mobile-only mb-3" method="GET" action="">
+                            <input class="form-control search-input" type="search" name="search" placeholder="Search by Name or Designation" value="<?php echo htmlspecialchars($search); ?>" aria-label="Search" />
+                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <div class="offcanvas-buttons">
                             <button class="btn w-100 mb-2 alvi"><a href="../index.php">E-commerce</a></button>
@@ -89,40 +86,43 @@ if (isset($_POST['go_to_login'])) {
     <!-- Our products ends here -->
     <!-- Product card starts here -->
     <div class="product-card-div_down">
-        <?php while ($employee = mysqli_fetch_assoc($result)) { ?>
-            <div class="product-card_down">
-                <div class="product-image_down">
-                    <img src="../uploads/<?php echo htmlspecialchars($employee['profile_image']); ?>" alt="<?php echo htmlspecialchars($employee['full_name']); ?>" />
-                </div>
-                <div class="product-details_down">
-                    <p class="category_down"><?php echo htmlspecialchars($employee['designation']); ?></p>
-                    <h3 class="price_down"><?php echo htmlspecialchars($employee['full_name']); ?></h3>
-                    <p class="product-title_down">
-                        <?php echo htmlspecialchars($employee['email']); ?><br />
-                        <?php echo htmlspecialchars($employee['phone_number']); ?><br />
-                        Blood Group: <?php echo htmlspecialchars($employee['blood_group']); ?>
-                    </p>
-                    <div class="rating_down">
-                        <span class="stars_down">Joined: <?php echo htmlspecialchars($employee['joining_date']); ?></span>
+        <?php if (mysqli_num_rows($result) > 0) { ?>
+            <?php while ($employee = mysqli_fetch_assoc($result)) { ?>
+                <div class="product-card_down">
+                    <div class="product-image_down">
+                        <img src="../Uploads/<?php echo htmlspecialchars($employee['profile_image']); ?>" alt="<?php echo htmlspecialchars($employee['full_name']); ?>" />
+                    </div>
+                    <div class="product-details_down">
+                        <p class="category_down"><?php echo htmlspecialchars($employee['designation']); ?></p>
+                        <h3 class="price_down"><?php echo htmlspecialchars($employee['full_name']); ?></h3>
+                        <p class="product-title_down">
+                            <?php echo htmlspecialchars($employee['email']); ?><br />
+                            <?php echo htmlspecialchars($employee['phone_number']); ?><br />
+                            Blood Group: <?php echo htmlspecialchars($employee['blood_group']); ?>
+                        </p>
+                        <div class="rating_down">
+                            <span class="stars_down">Joined: <?php echo htmlspecialchars($employee['joining_date']); ?></span>
+                        </div>
+                    </div>
+                    <div class="wishlist_down">
+                        <i class="far fa-heart"></i>
                     </div>
                 </div>
-                <div class="wishlist_down">
-                    <i class="far fa-heart"></i>
-                </div>
+            <?php } ?>
+        <?php } else { ?>
+            <div class="no-results">
+                <p>No search result found.</p>
             </div>
         <?php } ?>
     </div>
     <!-- Product card ends here -->
-     
-    <!--add member starts here-->
-    
+    <!-- Add member starts here -->
     <div class="add-member-container">
-    <form  method="POST">
-      <button class="add-member-btn" name="go_to_login">Add Member</button>
-      </form>
+        <form method="POST">
+            <button class="add-member-btn" name="go_to_login">Add Member</button>
+        </form>
     </div>
-   
-    <!--add member  ends here-->
+    <!-- Add member ends here -->
     <!-- Footer starts here -->
     <footer class="footer">
         <div class="container">
@@ -175,11 +175,8 @@ if (isset($_POST['go_to_login'])) {
         </div>
     </footer>
     <!-- Footer ends here -->
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-    <script src="https://kit.fontawesome.com/85fcd39f72.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="../js_file/official_website_employee.js"></script>
 </body>
 </html>
-

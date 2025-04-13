@@ -120,6 +120,16 @@ CREATE TABLE employees (
     profile_image VARCHAR(255) NOT NULL
 );
 
+-- Users table for login/signup
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL, -- Stores hashed password
+    address TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Verify setup
 SHOW TABLES;
 SELECT * FROM farmers;
@@ -131,3 +141,7 @@ SELECT * FROM cart;
 SELECT * FROM employees;
 SELECT * FROM orders;
 SELECT * FROM order_items;
+SELECT * FROM users;
+
+DESCRIBE orders;
+DESCRIBE order_items;
