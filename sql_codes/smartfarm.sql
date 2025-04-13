@@ -1,5 +1,7 @@
 SET SQL_SAFE_UPDATES = 0;
 SET SQL_SAFE_UPDATES = 1;
+SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS = 1;
 CREATE DATABASE IF NOT EXISTS smartfarm;
 USE smartfarm;
 
@@ -33,6 +35,9 @@ CREATE TABLE farmer_farm_types (
     FOREIGN KEY (farm_type_id) REFERENCES farm_types(farm_type_id) ON DELETE CASCADE
 );
 
+
+
+
 -- Product types table (unchanged)
 CREATE TABLE product_types (
     product_type_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,12 +46,14 @@ CREATE TABLE product_types (
 );
 
 INSERT INTO product_types (product_name, product_image) VALUES
-('Apple', 'apple.jpg'), ('Potato', 'potato.jpg'), ('Carrot', 'carrot.jpg'), ('Tomato', 'tomato.jpg'),
-('Banana', 'banana.jpg'), ('Orange', 'orange.jpg'), ('Milk', 'milk.jpg'), ('Cheese', 'cheese.jpg'),
-('Yogurt', 'yogurt.jpg'), ('Salmon', 'salmon.jpg'), ('Tuna', 'tuna.jpg'), ('Cod', 'cod.jpg'),
-('Beef', 'beef.jpg'), ('Chicken', 'chicken.jpg'), ('Pork', 'pork.jpg'), ('Rice', 'rice.jpg'),
-('Wheat', 'wheat.jpg'), ('Corn', 'corn.jpg'), ('Onion', 'onion.jpg'), ('Garlic', 'garlic.jpg'),
-('Broccoli', 'broccoli.jpg'), ('Spinach', 'spinach.jpg'), ('Egg', 'egg.jpg');
+('Fulkopi', 'fulkopi.jpg'), ('Potato', 'potato.jpg'), ('Carrot', 'carrot.jpg'), ('Tomato', 'tomato.jpg'),('Begun', 'begun.jpg'),('Borboti', 'borboti.jpg'),
+('Apple', 'apple.jpg'),('Banana', 'banana.jpg'), ('Orange', 'orange.jpg'), ('Milk', 'milk.jpg'), ('Cheese', 'cheese.jpg'),('Chalkumra', 'chalkumra.jpg'),
+('Yogurt', 'yogurt.jpg'), ('Salmon', 'salmon.jpg'), ('Tuna', 'tuna.jpg'), ('Cod', 'cod.jpg'),('Corn_powder', 'corn_powder.jpg'),('Ginger', 'ginger.jpg'),
+('Beef', 'beef.jpg'), ('Chicken', 'chicken.jpg'), ('Pork', 'pork.jpg'), ('Rice', 'rice.jpg'),('Green_capsicum', 'green_capsicum.jpg'),('Red_capsicum', 'red_capsicum.jpg'),
+('Wheat', 'wheat.jpg'), ('Corn', 'corn.jpg'), ('Onion', 'onion.jpg'), ('Garlic', 'garlic.jpg'),('Kacha_morich', 'kacha_morich.jpg'),('Mutton', 'mutton.jpg'),('Pepe', 'pepe.jpg'),('Shim', 'shim.jpg'),
+('Broccoli', 'broccoli.jpg'), ('Spinach', 'spinach.jpg'), ('Egg', 'egg.jpg'),('Shosha', 'Shosha.jpg'),('Badhakopi', 'Badhakopi.jpg'),
+('Sweet_pumkin', 'sweet_pumkin.jpg'),('Motorshoti', 'motorshoti.jpg'),('LouBadhakopi', 'lou.jpg');
+
 
 -- Products table (unchanged)
 CREATE TABLE products (
