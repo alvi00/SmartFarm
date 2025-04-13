@@ -630,6 +630,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  text-decoration: none;
 }
 
 .right-side-text p {
@@ -638,6 +639,7 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   white-space: nowrap; /* Prevents text from breaking */
+  text-decoration: none;
 }
 
 .right-side-text p:hover {
@@ -1184,3 +1186,11 @@ ul li a:hover {
   text-decoration: none;
   color: white;
 }
+
+/* no product found  starts here */
+.featured-products div[style*="text-align: center"],
+.product-card-div_down div[style*="text-align: center"] {
+  font-size: 18px;
+  color: #555;
+}
+/* no product found  ends here*/

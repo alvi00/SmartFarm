@@ -6,14 +6,35 @@ if (isset($_POST['go_to_farmer'])) {
     exit();
 }
 
-// Query for Featured Products (Option C: Aggregate by product_type_id)
+// Get search term and category
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$category = isset($_GET['category']) ? $_GET['category'] : 'All';
+
+// Query for Featured Products
 $sql_featured = "SELECT pt.product_name, pt.product_image, p.product_type_id, ft.farm_type_name,
                 SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
                 FROM products p
                 JOIN product_types pt ON p.product_type_id = pt.product_type_id
-                JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
-                GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
+                JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id";
+
+// Add WHERE clause for search and category
+$where = [];
+if ($search != '') {
+    $where[] = "pt.product_name LIKE '%$search%'";
+}
+if ($category != 'All') {
+    $where[] = "ft.farm_type_name = '$category'";
+}
+if (!empty($where)) {
+    $sql_featured .= " WHERE " . implode(" AND ", $where);
+}
+
+$sql_featured .= " GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
 $result_featured = $conn->query($sql_featured);
+
+// Query for Our Products (same as Featured Products)
+$sql_products = $sql_featured;
+$result_products = $conn->query($sql_products);
 
 // Query for cart count
 $sql_cart = "SELECT COUNT(*) AS cart_count FROM cart";
@@ -29,15 +50,6 @@ $sql_sellers = "SELECT f.farmer_id, f.full_name, f.face_image,
                 ORDER BY total_weight DESC
                 LIMIT 4";
 $result_sellers = $conn->query($sql_sellers);
-
-// Query for Our Products
-$sql_products = "SELECT pt.product_name, p.product_type_id, pt.product_image, ft.farm_type_name,
-                 SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
-                 FROM products p
-                 JOIN product_types pt ON p.product_type_id = pt.product_type_id
-                 JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
-                 GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
-$result_products = $conn->query($sql_products);
 ?>
 
 <!DOCTYPE html>
@@ -68,11 +80,9 @@ $result_products = $conn->query($sql_products);
                     <li><button class="dropdown-item" type="button">Something else here</button></li>
                 </ul>
             </div>
-            <form class="d-flex search-form desktop-only" role="search">
-                <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                <button class="btn search-button" type="submit">
-                    <div class="search-text"><p>Search</p><i class="fas fa-search"></i></div>
-                </button>
+            <form class="d-flex search-form desktop-only" method="GET">
+                <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
+                <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="icons-right">
                 <div class="user-icon"><i class="fa-regular fa-user"></i></div>
@@ -104,11 +114,9 @@ $result_products = $conn->query($sql_products);
                                 <li><button class="dropdown-item" type="button">Something else here</button></li>
                             </ul>
                         </div>
-                        <form class="d-flex search-form mobile-only mb-3" role="search">
-                            <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                            <button class="btn search-button" type="submit">
-                                <div class="search-text"><p>Search</p><i class="fas fa-search"></i></div>
-                            </button>
+                        <form class="d-flex search-form mobile-only mb-3" method="GET">
+                             <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
+                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <div class="offcanvas-buttons">
                             <button class="btn w-100 mb-2 alvi"><a href="index.php">E-commerce</a></button>
@@ -193,24 +201,26 @@ $result_products = $conn->query($sql_products);
 
     <!-- Featured products text starts line -->
     <div class="featured-products-text">
-        <h3>Trending Products</h3>
-        <div class="right-side-text">
-            <p>All</p>
-            <p>Dairy product</p>
-            <p>Vegetables</p>
-            <p>Fresh Fruits</p>
-            <p>Meat</p>
-            <p>Fish</p>
-        </div>
+    <h3>Trending Products</h3>
+    <div class="right-side-text">
+        <a href="index.php?category=All"><p <?php echo (!isset($_GET['category']) || $_GET['category'] == 'All') ? 'style="font-weight: bold;"' : ''; ?>>All</p></a>
+        <a href="index.php?category=Dairy Items"><p <?php echo (isset($_GET['category']) && $_GET['category'] == 'Dairy Items') ? 'style="font-weight: bold;"' : ''; ?>>Dairy Items</p></a>
+        <a href="index.php?category=Vegetables"><p <?php echo (isset($_GET['category']) && $_GET['category'] == 'Vegetables') ? 'style="font-weight: bold;"' : ''; ?>>Vegetables</p></a>
+        <a href="index.php?category=Fresh Fruits"><p <?php echo (isset($_GET['category']) && $_GET['category'] == 'Fresh Fruits') ? 'style="font-weight: bold;"' : ''; ?>>Fresh Fruits</p></a>
+        <a href="index.php?category=Meat Items"><p <?php echo (isset($_GET['category']) && $_GET['category'] == 'Meat Items') ? 'style="font-weight: bold;"' : ''; ?>>Meat Items</p></a>
+        <a href="index.php?category=Fish Items"><p <?php echo (isset($_GET['category']) && $_GET['category'] == 'Fish Items') ? 'style="font-weight: bold;"' : ''; ?>>Fish Items</p></a>
+        <a href="index.php?category=Carb Items"><p <?php echo (isset($_GET['category']) && $_GET['category'] == 'Carb Items') ? 'style="font-weight: bold;"' : ''; ?>>Carb Items</p></a>
     </div>
+</div>
     <!-- Featured products text line ends here -->
 
     <!-- Featured products starts here -->
+
     <div class="featured-products">
         <?php
         if ($result_featured->num_rows > 0) {
             while ($row = $result_featured->fetch_assoc()) {
-                $image_path = "uploads/" . $row['product_image'];
+                $image_path = "Uploads/" . $row['product_image'];
                 $avg_price = number_format($row['avg_price'], 2);
                 $total_weight = $row['total_weight'];
         ?>
@@ -242,6 +252,14 @@ $result_products = $conn->query($sql_products);
         <?php
             }
         } else {
+            // Check if search or category filter is active
+            if (isset($_GET['search']) && $_GET['search'] != '' || (isset($_GET['category']) && $_GET['category'] != 'All')) {
+        ?>
+            <div style="text-align: center; width: 100%; padding: 20px;">
+                <p>Sorry, no search result found.</p>
+            </div>
+        <?php
+            } else {
         ?>
             <div class="product-card">
                 <div class="product-header">
@@ -267,9 +285,11 @@ $result_products = $conn->query($sql_products);
                 </button>
             </div>
         <?php
+            }
         }
         ?>
     </div>
+
     <!-- Featured products ends here -->
 
     <!-- Top sellers starts here -->
@@ -332,6 +352,7 @@ $result_products = $conn->query($sql_products);
     <!-- Divider image ends here -->
 
     <!-- Our products starts here -->
+    <!-- Our products starts here -->
     <div class="top-sellers">
         <h3>Our Products</h3>
     </div>
@@ -339,7 +360,7 @@ $result_products = $conn->query($sql_products);
         <?php
         if ($result_products->num_rows > 0) {
             while ($row = $result_products->fetch_assoc()) {
-                $image_path = "uploads/" . $row['product_image'];
+                $image_path = "Uploads/" . $row['product_image'];
                 $avg_price = number_format($row['avg_price'], 2);
                 $total_weight = $row['total_weight'];
         ?>
@@ -367,6 +388,14 @@ $result_products = $conn->query($sql_products);
         <?php
             }
         } else {
+            // Check if search or category filter is active
+            if (isset($_GET['search']) && $_GET['search'] != '' || (isset($_GET['category']) && $_GET['category'] != 'All')) {
+        ?>
+            <div style="text-align: center; width: 100%; padding: 20px;">
+                <p>Sorry, no search result found.</p>
+            </div>
+        <?php
+            } else {
         ?>
             <div class="product-card_down">
                 <div class="product-image_down">
@@ -384,9 +413,11 @@ $result_products = $conn->query($sql_products);
                 <div class="wishlist_down"><i class="far fa-heart"></i></div>
             </div>
         <?php
+            }
         }
         ?>
     </div>
+<!-- Product card ends here -->
     <!-- Product card ends here -->
 
     <!-- Footer starts here -->
