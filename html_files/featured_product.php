@@ -168,8 +168,8 @@ $conn->close();
                             </button>
                         </form>
                         <div class="offcanvas-buttons">
-                            <button class="btn w-100 mb-2 alvi"><a href="../index.php">Home</a></button>
-                            <button class="btn w-100 mb-2 alvi"><a href="official_website.html">Official Website</a></button>
+                            <button class="btn w-100 mb-2 alvi"><a href="../index.php">E-commerce</a></button>
+                            <button class="btn w-100 mb-2 alvi"><a href="official_website.php">Official Website</a></button>
                             <button class="btn w-100 mb-2 alvi"><a href="farmer.php">Be a Farmer</a></button>
                         </div>
                     </div>

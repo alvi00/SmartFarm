@@ -111,8 +111,8 @@ $result_products = $conn->query($sql_products);
                             </button>
                         </form>
                         <div class="offcanvas-buttons">
-                            <button class="btn w-100 mb-2 alvi"><a href="index.php">Home</a></button>
-                            <button class="btn w-100 mb-2 alvi"><a href="html_files/official_website.html">Official Website</a></button>
+                            <button class="btn w-100 mb-2 alvi"><a href="index.php">E-commerce</a></button>
+                            <button class="btn w-100 mb-2 alvi"><a href="html_files/official_website.php">Official Website</a></button>
                             <form method="POST">
                                 <button class="btn w-100 mb-2 alvi" name="go_to_farmer" type="submit">Be a Farmer</button>
                             </form>

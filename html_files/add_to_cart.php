@@ -279,8 +279,8 @@ $conn->close();
                         <span><?php echo number_format($total, 2); ?> TK</span>
                     </div>
                     <div class="action-buttons">
-                        <button class="continue-btn">Continue Shopping</button>
-                        <button class="checkout-btn">Proceed to Checkout</button>
+                        <a href="../index.php"><button class="continue-btn">Continue Shopping</button></a> 
+                        <a href="order_details.php"><button class="checkout-btn">Proceed to Checkout</button></a> 
                     </div>
                 </div>
             </div>

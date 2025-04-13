@@ -3,7 +3,7 @@ SET SQL_SAFE_UPDATES = 1;
 CREATE DATABASE IF NOT EXISTS smartfarm;
 USE smartfarm;
 
--- Farmers table
+-- Farmers table (unchanged)
 CREATE TABLE farmers (
     farmer_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(255) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE farmers (
     face_image VARCHAR(255) NOT NULL
 );
 
--- Farm types table
+-- Farm types table (unchanged)
 CREATE TABLE farm_types (
     farm_type_id INT AUTO_INCREMENT PRIMARY KEY,
     farm_type_name VARCHAR(100) NOT NULL
@@ -24,7 +24,7 @@ CREATE TABLE farm_types (
 INSERT INTO farm_types (farm_type_name)
 VALUES ('Vegetables'), ('Fresh Fruits'), ('Dairy Items'), ('Fish Items'), ('Meat Items'), ('Carb Items');
 
--- Farmer-farm types junction table
+-- Farmer-farm types junction table (unchanged)
 CREATE TABLE farmer_farm_types (
     farmer_id INT,
     farm_type_id INT,
@@ -33,7 +33,7 @@ CREATE TABLE farmer_farm_types (
     FOREIGN KEY (farm_type_id) REFERENCES farm_types(farm_type_id) ON DELETE CASCADE
 );
 
--- Product types table for predefined products
+-- Product types table (unchanged)
 CREATE TABLE product_types (
     product_type_id INT AUTO_INCREMENT PRIMARY KEY,
     product_name VARCHAR(100) NOT NULL UNIQUE,
@@ -48,7 +48,7 @@ INSERT INTO product_types (product_name, product_image) VALUES
 ('Wheat', 'wheat.jpg'), ('Corn', 'corn.jpg'), ('Onion', 'onion.jpg'), ('Garlic', 'garlic.jpg'),
 ('Broccoli', 'broccoli.jpg'), ('Spinach', 'spinach.jpg'), ('Egg', 'egg.jpg');
 
--- Products table
+-- Products table (unchanged)
 CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     weight_kg INT NOT NULL CHECK (weight_kg >= 0),
@@ -63,7 +63,7 @@ CREATE TABLE products (
     FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id) ON DELETE RESTRICT
 );
 
--- cart section
+-- Cart table (unchanged, matches add_to_cart.php)
 CREATE TABLE cart (
     cart_id INT AUTO_INCREMENT PRIMARY KEY,
     product_type_id INT NOT NULL,
@@ -74,6 +74,52 @@ CREATE TABLE cart (
     FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id) ON DELETE CASCADE
 );
 
+
+-- New Orders table
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    delivery_address TEXT NOT NULL,
+    additional_notes TEXT,
+    payment_method VARCHAR(50) NOT NULL, -- e.g., "MasterCard", "Visa", "COD", "bKash"
+    subtotal DECIMAL(10,2) NOT NULL,
+    shipping DECIMAL(10,2) NOT NULL DEFAULT 100.00,
+    tax DECIMAL(10,2) NOT NULL DEFAULT 20.00,
+    total DECIMAL(10,2) NOT NULL,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- New Order Items table (to link orders with cart items)
+CREATE TABLE order_items (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_type_id INT NOT NULL,
+    quantity_kg INT NOT NULL,
+    unit_price_tk DECIMAL(10,2) NOT NULL,
+    total_price_tk DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
+    FOREIGN KEY (product_type_id) REFERENCES product_types(product_type_id) ON DELETE RESTRICT
+);
+
+-- Employees table (unchanged)
+CREATE TABLE employees (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    designation VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    blood_group VARCHAR(10) NOT NULL,
+    nationality VARCHAR(100) NOT NULL,
+    permanent_address TEXT NOT NULL,
+    present_address TEXT NOT NULL,
+    joining_date DATE NOT NULL,
+    marital_status VARCHAR(20) NOT NULL,
+    profile_image VARCHAR(255) NOT NULL
+);
+
 -- Verify setup
 SHOW TABLES;
 SELECT * FROM farmers;
@@ -82,3 +128,6 @@ SELECT * FROM farm_types;
 SELECT * FROM products;
 SELECT * FROM product_types;
 SELECT * FROM cart;
+SELECT * FROM employees;
+SELECT * FROM orders;
+SELECT * FROM order_items;

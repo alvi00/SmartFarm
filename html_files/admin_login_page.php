@@ -1,3 +1,11 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
+
+if (isset($_POST['go_to_employee_form'])) {
+    header("Location:employee_form.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +33,7 @@
         </div>
 
         <!-- Admin Login Form -->
-        <form class="admin-login-form">
+        <form class="admin-login-form" method="POST">
           <h2>Admin Login</h2>
           <div class="form-group">
             <label>Email</label>
@@ -45,10 +53,14 @@
               required
             />
           </div>
-          <button type="submit" class="btn-admin-login">Login</button>
+          <form method="POST">
+
+            <button type="submit" class="btn-admin-login" name="go_to_employee_form">Login</button>
+            </form>
+          
         </form>
       </div>
     </div>
-    <script src="../js file/admin_login_page.js"></script>
+    
   </body>
 </html>

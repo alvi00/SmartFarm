@@ -1,25 +1,18 @@
 <?php
+// Database connection
 $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
-$sql = "SELECT f.full_name, f.phone_number, f.registration_date, f.face_image, 
-        GROUP_CONCAT(ft.farm_type_name SEPARATOR ', ') AS farm_types
-        FROM farmers f
-        LEFT JOIN farmer_farm_types fft ON f.farmer_id = fft.farmer_id
-        LEFT JOIN farm_types ft ON fft.farm_type_id = ft.farm_type_id
-        GROUP BY f.farmer_id";
-$result = $conn->query($sql);
+// Fetch employees
+$query = "SELECT full_name, designation, email, phone_number, blood_group, joining_date, profile_image FROM employees";
+$result = mysqli_query($conn, $query);
 
-if (isset($_POST['add_farmer'])) {
-    header("Location: add_farmer_form.php");
-    exit();
-}
-if (isset($_POST['add_products'])) {
-  header("Location: add_product_form.php");
+if (isset($_POST['go_to_login'])) {
+  header("Location: admin_login_page.php");
   exit();
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,44 +21,32 @@ if (isset($_POST['add_products'])) {
     <title>SmartFarm</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="../css_file/farmer.css?v=<?php echo time(); ?>" />
+    <link rel="stylesheet" href="../css_file/official_website_employee.css" />
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navbar starts here -->
     <nav>
         <div class="navbar">
             <div class="logo">
                 <a href="#"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
-            <div class="desktop-only dropdown">
-                <button class="btn all_catagories" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-bars-staggered"></i> Add New <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                
-                    <li>
-                        <form method="POST">
-                          <button class="dropdown-item" type="submit" name="add_products">Add Products</button>
-                        </form>
-                   </li>
-                    <li>
-                        <form method="POST">
-                            <button class="dropdown-item add_farmer" type="submit" name="add_farmer">Add Farmer</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
             <form class="d-flex search-form desktop-only" role="search">
                 <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
                 <button class="btn search-button" type="submit">
-                    <div class="search-text"><p>Search</p><i class="fas fa-search"></i></div>
+                    <div class="search-text">
+                        <p>Search</p>
+                        <i class="fas fa-search"></i>
+                    </div>
                 </button>
             </form>
             <div class="icons-right">
-                <div class="user-icon"><i class="fa-regular fa-user"></i></div>
+                <div class="user-icon">
+                    <i class="fa-regular fa-user"></i>
+                </div>
                 <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                    <div class="hamburger-menu"><i class="fa-solid fa-bars"></i></div>
+                    <div class="hamburger-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
                 </button>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                     <div class="offcanvas-header">
@@ -73,19 +54,13 @@ if (isset($_POST['add_products'])) {
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <div class="mobile-only dropdown mb-3">
-                            <button class="btn all_catagories w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-bars-staggered"></i> Add New <i class="fa-solid fa-angle-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Add Products</button></li>
-                                <li><button class="dropdown-item add_farmer" type="button">Add Farmer</button></li>
-                            </ul>
-                        </div>
                         <form class="d-flex search-form mobile-only mb-3" role="search">
                             <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
                             <button class="btn search-button" type="submit">
-                                <div class="search-text"><p>Search</p><i class="fas fa-search"></i></div>
+                                <div class="search-text">
+                                    <p>Search</p>
+                                    <i class="fas fa-search"></i>
+                                </div>
                             </button>
                         </form>
                         <div class="offcanvas-buttons">
@@ -98,53 +73,57 @@ if (isset($_POST['add_products'])) {
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
+    <!-- Navbar ends here -->
+    <!-- Hero Section starts here -->
     <div class="hero">
         <h2>Empowering Farmers</h2>
         <h2>Connecting Buyers</h2>
         <p>Bridging the gap between farmers and consumers—fresh, organic, and direct from the source. Support local farmers and enjoy the best nature has to offer.</p>
         <button class="button alvi"><a href="#top-sellers">Get Started</a></button>
     </div>
-
-    <!-- Top Sellers -->
+    <!-- Hero Section ends here -->
+    <!-- Our products starts here -->
     <div class="top-sellers" id="top-sellers">
-        <h3>Our Farmers</h3>
+        <h3>OFFICE EMPLOYEES</h3>
     </div>
-
-    <!-- Product Cards -->
+    <!-- Our products ends here -->
+    <!-- Product card starts here -->
     <div class="product-card-div_down">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $image_path = $row['face_image'] ? "../uploads/" . $row['face_image'] : "IMG/top-seller-1.png";
-        ?>
-                <div class="product-card_down">
-                    <div class="product-image_down">
-                        <img src="<?php echo $image_path; ?>" alt="<?php echo $row['full_name']; ?>">
-                    </div>
-                    <div class="product-details_down">
-                        <p class="category_down"><?php echo $row['farm_types'] ?: 'No farm types'; ?></p>
-                        <h3 class="price_down"><?php echo $row['full_name']; ?></h3>
-                        <p class="product-title_down">
-                            <?php echo $row['phone_number']; ?> <br>
-                            <?php echo $row['registration_date']; ?>
-                        </p>
-                    </div>
-                    <div class="wishlist_down">
-                        <i class="far fa-heart"></i>
+        <?php while ($employee = mysqli_fetch_assoc($result)) { ?>
+            <div class="product-card_down">
+                <div class="product-image_down">
+                    <img src="../uploads/<?php echo htmlspecialchars($employee['profile_image']); ?>" alt="<?php echo htmlspecialchars($employee['full_name']); ?>" />
+                </div>
+                <div class="product-details_down">
+                    <p class="category_down"><?php echo htmlspecialchars($employee['designation']); ?></p>
+                    <h3 class="price_down"><?php echo htmlspecialchars($employee['full_name']); ?></h3>
+                    <p class="product-title_down">
+                        <?php echo htmlspecialchars($employee['email']); ?><br />
+                        <?php echo htmlspecialchars($employee['phone_number']); ?><br />
+                        Blood Group: <?php echo htmlspecialchars($employee['blood_group']); ?>
+                    </p>
+                    <div class="rating_down">
+                        <span class="stars_down">Joined: <?php echo htmlspecialchars($employee['joining_date']); ?></span>
                     </div>
                 </div>
-        <?php
-            }
-        } else {
-            echo "<p>No farmers found.</p>";
-        }
-        $conn->close();
-        ?>
+                <div class="wishlist_down">
+                    <i class="far fa-heart"></i>
+                </div>
+            </div>
+        <?php } ?>
     </div>
-
-    <!-- Footer -->
+    <!-- Product card ends here -->
+     
+    <!--add member starts here-->
+    
+    <div class="add-member-container">
+    <form  method="POST">
+      <button class="add-member-btn" name="go_to_login">Add Member</button>
+      </form>
+    </div>
+   
+    <!--add member  ends here-->
+    <!-- Footer starts here -->
     <footer class="footer">
         <div class="container">
             <div class="footer-section logo-section">
@@ -195,9 +174,12 @@ if (isset($_POST['add_products'])) {
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
+    <!-- Footer ends here -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://kit.fontawesome.com/85fcd39f72.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="../js_file/official_website_employee.js"></script>
 </body>
 </html>
+

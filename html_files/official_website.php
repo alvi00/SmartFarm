@@ -1,3 +1,11 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
+
+if (isset($_POST['go_to_employee'])) {
+    header("Location:official_website_employee.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,13 +37,15 @@
             <li>Home</li>
             <li>About</li>
             <li>Contact</li>
-            <li id="member">
-              Member
+            <form method="POST">
+            <button class="btn  anas" type="submit" name="go_to_employee"><li id="member" >Member</li></button>
+              
               <!-- <ul class="dropdown">
                 <li>Employee</li>
                 <li>Farmers</li>
               </ul> -->
-            </li>
+            
+            </form>
           </ul>
         </div>
 
@@ -103,13 +113,13 @@
               <!-- New Buttons (Always Visible in Offcanvas) -->
               <div class="offcanvas-buttons">
                 <button class="btn w-100 mb-2 alvi">
-                  <a href="index.html">Home</a>
+                  <a href="../index.php">E-commerce</a>
                 </button>
                 <button class="btn w-100 mb-2 alvi">
-                  <a href="official_website.html">Official Website</a>
+                  <a href="official_website.php">Official Website</a>
                 </button>
                 <button class="btn w-100 mb-2 alvi">
-                  <a href="farmer.html">Be a Farmer</a>
+                  <a href="farmer.php">Be a Farmer</a>
                 </button>
               </div>
             </div>
