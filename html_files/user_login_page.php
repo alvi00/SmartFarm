@@ -21,7 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         // Verify password
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['user_id']; // Store user ID in session
-            header("Location: add_product_form.php");
+
+            // Check intended action and redirect accordingly
+            if (isset($_SESSION['intended_action'])) {
+                if ($_SESSION['intended_action'] == 'add_farmer') {
+                    unset($_SESSION['intended_action']); // Clear the session variable
+                    header("Location: add_farmer_form.php"); // Redirect to Add Farmer page
+                    exit();
+                } elseif ($_SESSION['intended_action'] == 'add_products') {
+                    unset($_SESSION['intended_action']); // Clear the session variable
+                    header("Location: add_product_form.php"); // Redirect to Add Products page
+                    exit();
+                }
+            }
+            // Default redirect if no intended action
+            header("Location: ../index.php"); // Fallback redirect
             exit();
         } else {
             $error_message = "Invalid email or password.";

@@ -1,4 +1,5 @@
 <?php
+session_start(); // Start session
 $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
 // Get search term
@@ -17,11 +18,14 @@ if (!empty($search)) {
 $sql .= " GROUP BY f.farmer_id";
 $result = $conn->query($sql);
 
+// Handle form submissions
 if (isset($_POST['add_farmer'])) {
+    $_SESSION['intended_action'] = 'add_farmer'; // Store intended action
     header("Location: user_login_page.php");
     exit();
 }
 if (isset($_POST['add_products'])) {
+    $_SESSION['intended_action'] = 'add_products'; // Store intended action
     header("Location: user_login_page.php");
     exit();
 }
