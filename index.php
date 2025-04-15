@@ -166,7 +166,7 @@ $result_sellers = $conn->query($sql_sellers);
     <img src="uploads/carb.jpg" alt="Premium Honeynuts" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; position: absolute; top: 0; left: 0; z-index: 0;">
     <div class="promo-content_banner_two" style="width: auto; height: auto; padding-left: 50px; padding-right: 50px; padding-top: 40px; position: relative; z-index: 1;">
         <h1 style="font-size: 30px; font-weight: bold; padding-top: 15px; color: white;">Premium Carbs</h1>
-        <p style="font-size: 15px; font-weight: 500; color: #28a745;">100% Premium Carbs</p>
+        <p style="font-size: 15px; font-weight: 500; color:rgb(236, 255, 253);">100% Premium Carbs</p>
     </div>
 </div>
 
@@ -182,7 +182,7 @@ $result_sellers = $conn->query($sql_sellers);
     <div class="promo-banner_four" style="width: 50%; height: 100%; border-radius: 20px; margin-top: 30px; margin-right: 30px; overflow: hidden; position: relative;">
         <img src="uploads/veg2.jpg" alt="Facewash" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1;">
         <div class="promo-content_banner_four">
-            <h1>Fresh Vegetavles</h1>
+            <h1>Fresh Vegetables</h1>
             <p>All Fixed price</p>
             
         </div>
