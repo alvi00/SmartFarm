@@ -71,7 +71,7 @@ $result_sellers = $conn->query($sql_sellers);
                 <a href="#"><img src="IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
 
-            <form class="d-flex search-form desktop-only" method="GET">
+            <form class="d-flex search-form desktop-only" method="GET" onsubmit="scrollToTrending()">
                 <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
                 <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
             </form>
@@ -95,7 +95,17 @@ $result_sellers = $conn->query($sql_sellers);
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form class="d-flex search-form mobile-only mb-3" method="GET">
+                        <div class="mobile-only dropdown mb-3">
+                            <button class="btn all_catagories w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Action</button></li>
+                                <li><button class="dropdown-item" type="button">Another action</button></li>
+                                <li><button class="dropdown-item" type="button">Something else here</button></li>
+                            </ul>
+                        </div>
+                        <form class="d-flex search-form mobile-only mb-3" method="GET" onsubmit="scrollToTrending()">
                              <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
                             <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
                         </form>
@@ -181,7 +191,7 @@ $result_sellers = $conn->query($sql_sellers);
     <!-- Promotional Contents ends here -->
 
     <!-- Featured products text starts line -->
-    <div class="featured-products-text">
+    <div class="featured-products-text" id="trending-products">
     <h3>Trending Products</h3>
     <div class="right-side-text">
         <a href="index.php?category=All"><p <?php echo (!isset($_GET['category']) || $_GET['category'] == 'All') ? 'style="font-weight: bold;"' : ''; ?>>All</p></a>
@@ -222,10 +232,7 @@ $result_sellers = $conn->query($sql_sellers);
                 <p class="product-title">
                     <?php echo $row['product_name']; ?>
                 </p>
-                <div class="rating">
-                    <span>⭐⭐⭐⭐⭐</span>
-                    <span class="rating-score">(5.00)</span>
-                </div>
+  
                 <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
                     <i class="fa-solid fa-cart-shopping"></i> Select Options
                 </a>
@@ -257,10 +264,7 @@ $result_sellers = $conn->query($sql_sellers);
                     <span class="price">N/A</span>
                 </div>
                 <p class="product-title">No Products Available</p>
-                <div class="rating">
-                    <span>⭐⭐⭐⭐⭐</span>
-                    <span class="rating-score">(5.00)</span>
-                </div>
+
                 <button class="select-options">
                     <i class="fa-solid fa-cart-shopping"></i> Select Options
                 </button>
@@ -293,10 +297,6 @@ $result_sellers = $conn->query($sql_sellers);
                         <div class="card-body py-2 px-2">
                             <h5 class="card-title mb-1">Featured</h5>
                             <p class="card-text mb-1 text-muted"><?php echo $row['full_name']; ?></p>
-                            <div class="rating d-flex align-items-center">
-                                <span class="text-warning">⭐⭐⭐⭐⭐</span>
-                                <span class="rating-score ms-1 text-muted" style="font-size: 12px">(5.00)</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -314,10 +314,7 @@ $result_sellers = $conn->query($sql_sellers);
                         <div class="card-body py-2 px-2">
                             <h5 class="card-title mb-1">Featured</h5>
                             <p class="card-text mb-1 text-muted">No Top Sellers Yet</p>
-                            <div class="rating d-flex align-items-center">
-                                <span class="text-warning">⭐⭐⭐⭐⭐</span>
-                                <span class="rating-score ms-1 text-muted" style="font-size: 12px">(5.00)</span>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -356,10 +353,7 @@ $result_sellers = $conn->query($sql_sellers);
                         <?php echo $row['product_name']; ?> <br />
                         <?php echo $total_weight; ?> kg available
                     </p>
-                    <div class="rating_down">
-                        <span class="stars_down">⭐⭐⭐⭐⭐</span>
-                        <span class="rating-value_down">(5.00)</span>
-                    </div>
+
                     <a href="html_files/featured_product.php?product_type_id=<?php echo $row['product_type_id']; ?>" class="select-options">
                         <i class="fa-solid fa-cart-shopping"></i> Select Options
                     </a>
@@ -386,10 +380,7 @@ $result_sellers = $conn->query($sql_sellers);
                     <p class="category_down">N/A</p>
                     <h3 class="price_down">N/A</h3>
                     <p class="product-title_down">No Products Available</p>
-                    <div class="rating_down">
-                        <span class="stars_down">⭐⭐⭐⭐⭐</span>
-                        <span class="rating-value_down">(5.00)</span>
-                    </div>
+
                 </div>
                 <div class="wishlist_down"><i class="far fa-heart"></i></div>
             </div>
@@ -457,6 +448,21 @@ $result_sellers = $conn->query($sql_sellers);
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="index.js"></script>
+    <script>
+    function scrollToTrending() {
+        const trendingSection = document.getElementById('trending-products');
+        if (trendingSection) {
+            trendingSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Scroll to trending products on page load if search query exists
+    window.onload = function() {
+        if (window.location.search.includes('search=')) {
+            scrollToTrending();
+        }
+    };
+</script>
 </body>
 </html>
 
