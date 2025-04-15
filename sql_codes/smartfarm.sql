@@ -127,6 +127,9 @@ CREATE TABLE employees (
     profile_image VARCHAR(255) NOT NULL
 );
 
+alter table employees
+add column password VARCHAR(255) NOT NULL;
+
 -- Users table for login/signup
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
