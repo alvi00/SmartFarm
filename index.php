@@ -159,7 +159,9 @@ $result_sellers = $conn->query($sql_sellers);
                 <span class="promo-badge">100% Farm Fresh Food</span>
                 <h1>Fresh Organic</h1>
                 <p>Food For All</p>
-                <button class="shop-btn">Shop Now</button>
+                <button class="shop-btn">
+                    <a href="#trending-products" style="text-decoration: none; color: white;">Shop Now</a>
+                </button>
             </div>
         </div>
         <div class="promo-banner_two" style="position: relative; right: 0; width: 50%; height: 50%; margin-top: 30px; margin-right: 30px; border-radius: 20px; overflow: hidden;">
