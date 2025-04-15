@@ -198,7 +198,6 @@ $conn->close();
         <div class="container">
             <div class="footer-section logo-section">
                 <h2 class="logo">SmartFarm</h2>
-<<<<<<< HEAD
                 
                 <p>
                     When an unknown printer took a galley of type and scrambled it to
@@ -206,11 +205,6 @@ $conn->close();
                 </p>
                 <p><i class="fas fa-map-marker-alt"></i> 23/A Road, New York City</p>
                 <p><i class="fas fa-phone-alt"></i> +9888-256-666</p>
-=======
-                <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p><i class="fas fa-map-marker-alt"></i> 23/A Road,Uttara,Dhaka</p>
-                <p><i class="fas fa-phone-alt"></i>)01711946008</p>
->>>>>>> f17dc2140c19f4c4f9fbe1034b705cfbc7630a2b
                 <div class="social-icons">
                     <i class="fab fa-facebook"></i>
                     <i class="fab fa-x-twitter"></i>
