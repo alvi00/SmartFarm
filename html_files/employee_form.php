@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $present_address = $_POST['present_address'];
     $joining_date = $_POST['joining_date'];
     $marital_status = $_POST['marital_status'];
-
+    $password = $_POST['password'];
     // Handle image upload
     $profile_image = '';
     if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] == 0) {
@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert into database
-    $query = "INSERT INTO employees (full_name, designation, email, phone_number, blood_group, nationality, permanent_address, present_address, joining_date, marital_status, profile_image)
-              VALUES ('$full_name', '$designation', '$email', '$phone_number', '$blood_group', '$nationality', '$permanent_address', '$present_address', '$joining_date', '$marital_status', '$profile_image')";
+    $query = "INSERT INTO employees (full_name, designation, email, phone_number, blood_group, nationality, permanent_address, present_address, joining_date, marital_status, profile_image,password)
+              VALUES ('$full_name', '$designation', '$email', '$phone_number', '$blood_group', '$nationality', '$permanent_address', '$present_address', '$joining_date', '$marital_status', '$profile_image','$password')";
     mysqli_query($conn, $query);
 
     // Redirect to official_website_employee.php
@@ -72,6 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label>login password</label>
+                    <input type="password" name="password" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>

@@ -128,36 +128,39 @@ $conn->close();
         <h3>Our Farmers</h3>
     </div>
 
-    <!-- Product Cards -->
-    <div class="product-card-div_down">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $image_path = $row['face_image'] ? "../Uploads/" . $row['face_image'] : "IMG/top-seller-1.png";
-        ?>
-                <div class="product-card_down">
-                    <div class="product-image_down">
-                        <img src="<?php echo htmlspecialchars($image_path); ?>" alt="<?php echo htmlspecialchars($row['full_name']); ?>">
-                    </div>
-                    <div class="product-details_down">
-                        <p class="category_down"><?php echo htmlspecialchars($row['farm_types'] ?: 'No farm types'); ?></p>
-                        <h3 class="price_down"><?php echo htmlspecialchars($row['full_name']); ?></h3>
-                        <p class="product-title_down">
-                            <?php echo htmlspecialchars($row['phone_number']); ?> <br>
-                            <?php echo htmlspecialchars($row['registration_date']); ?>
-                        </p>
-                    </div>
-                    <div class="wishlist_down">
-                        <i class="far fa-heart"></i>
-                    </div>
+
+<!-- Product Cards -->
+<div class="product-card-div_down">
+    <?php
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $image_path = $row['face_image'] ? "../Uploads/" . $row['face_image'] : "IMG/top-seller-1.png";
+    ?>
+            <div class="product-card_down">
+                <div class="product-image_down">
+                    <img src="<?php echo htmlspecialchars($image_path); ?>" alt="<?php echo htmlspecialchars($row['full_name']); ?>">
                 </div>
-        <?php
-            }
-        } else {
-            echo '<div class="no-results"><p>No search result found.</p></div>';
+                <div class="product-details_down">
+                    <p class="category_down"><?php echo htmlspecialchars($row['farm_types'] ?: 'No farm types'); ?></p>
+                    <h3 class="price_down"><?php echo htmlspecialchars($row['full_name']); ?></h3>
+                    <p class="product-title_down">
+                        <?php echo htmlspecialchars($row['phone_number']); ?> <br>
+                        <?php echo htmlspecialchars($row['registration_date']); ?>
+                    </p>
+                </div>
+                <div class="wishlist_down">
+                    <a href="admin_login_page2.php?farmer_id=<?php echo $row['farmer_id']; ?>" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+    <?php
         }
-        ?>
-    </div>
+    } else {
+        echo '<div class="no-results"><p>No search result found.</p></div>';
+    }
+    ?>
+</div>
 
     <!-- Footer -->
     <footer class="footer">
