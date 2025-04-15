@@ -92,7 +92,7 @@ mysqli_close($conn);
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Per Unit Price</th>
                     </tr>
                 </thead>
                 <tbody id="product-list">
