@@ -98,19 +98,10 @@ $conn->close();
                 <a href="../index.php"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
             <div class="desktop-only dropdown">
-                <button class="btn all_catagories" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button">Action</button></li>
-                    <li><button class="dropdown-item" type="button">Another action</button></li>
-                    <li><button class="dropdown-item" type="button">Something else here</button></li>
-                </ul>
+                
+                
             </div>
-            <form class="d-flex search-form desktop-only" action="../index.php" method="GET">
-                <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" aria-label="Search" />
-                <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
-            </form>
+          
             <div class="icons-right">
                 <div class="user-icon"><i class="fa-regular fa-user"></i></div>
                 <div class="heart-icon"><i class="fa-regular fa-heart"></i></div>
@@ -129,19 +120,10 @@ $conn->close();
                     </div>
                     <div class="offcanvas-body">
                         <div class="mobile-only dropdown mb-3">
-                            <button class="btn all_catagories w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Action</button></li>
-                                <li><button class="dropdown-item" type="button">Another action</button></li>
-                                <li><button class="dropdown-item" type="button">Something else here</button></li>
-                            </ul>
+                            
+                          
                         </div>
-                        <form class="d-flex search-form mobile-only mb-3" action="../index.php" method="GET">
-                            <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" aria-label="Search" />
-                            <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
-                        </form>
+                      
                         <div class="offcanvas-buttons">
                             <button class="btn w-100 mb-2 alvi"><a href="../index.php">Home</a></button>
                             <button class="btn w-100 mb-2 alvi"><a href="official_website.php">Official Website</a></button>

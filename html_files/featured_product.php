@@ -105,15 +105,6 @@ $conn->close();
             <div class="logo">
                 <a href="../index.php"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
-            <form class="d-flex search-form desktop-only" role="search">
-                <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                <button class="btn search-button" type="submit">
-                    <div class="search-text">
-                        <p>Search</p>
-                        <i class="fas fa-search"></i>
-                    </div>
-                </button>
-            </form>
             <div class="icons-right">
                 <div class="user-icon">
                     <i class="fa-regular fa-user"></i>
@@ -140,15 +131,7 @@ $conn->close();
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <form class="d-flex search-form mobile-only mb-3" role="search">
-                            <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                            <button class="btn search-button" type="submit">
-                                <div class="search-text">
-                                    <p>Search</p>
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </button>
-                        </form>
+
                         <div class="offcanvas-buttons">
                             <button class="btn w-100 mb-2 alvi"><a href="../index.php">E-commerce</a></button>
                             <button class="btn w-100 mb-2 alvi"><a href="official_website.php">Official Website</a></button>
