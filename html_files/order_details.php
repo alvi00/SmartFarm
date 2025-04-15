@@ -274,14 +274,14 @@ $conn->close();
             </div>
         </div>
     </main>
-    <!-- Footer starts here -->
-    <footer class="footer">
+       <!-- Footer starts here -->
+       <footer class="footer">
         <div class="container">
             <div class="footer-section logo-section">
                 <h2 class="logo">SmartFarm</h2>
                 <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p><i class="fas fa-map-marker-alt"></i> 23/A Road, New York City</p>
-                <p><i class="fas fa-phone-alt"></i> +9888-256-666</p>
+                <p><i class="fas fa-map-marker-alt"></i> 23/A Road,Uttara,Dhaka</p>
+                <p><i class="fas fa-phone-alt"></i>)01711946008</p>
                 <div class="social-icons">
                     <i class="fab fa-facebook"></i>
                     <i class="fab fa-x-twitter"></i>
@@ -293,12 +293,12 @@ $conn->close();
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">Smartphones</a></li>
-                    <li><a href="#">Headphones</a></li>
-                    <li><a href="#">Laptop & Tablet</a></li>
-                    <li><a href="#">Monitors</a></li>
-                    <li><a href="#">Printers</a></li>
-                    <li><a href="#">Gadgets</a></li>
+                    <li><a href="#">Beef</a></li>
+                    <li><a href="#">Rice</a></li>
+                    <li><a href="#">Apple</a></li>
+                    <li><a href="#">Banana</a></li>
+                    <li><a href="#">Egg</a></li>
+                    <li><a href="#">Chicken</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -306,10 +306,8 @@ $conn->close();
                 <ul>
                     <li><a href="#">My Orders</a></li>
                     <li><a href="#">Cart</a></li>
-                    <li><a href="#">Checkout</a></li>
-                    <li><a href="#">Compare</a></li>
+                    <li><a href="#">Checkout</a></li>   
                     <li><a href="#">My Account</a></li>
-                    <li><a href="#">Wishlist</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -326,6 +324,7 @@ $conn->close();
         </div>
     </footer>
     <!-- Footer ends here -->
+     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="../index.js"></script>
