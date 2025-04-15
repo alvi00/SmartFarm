@@ -197,12 +197,8 @@ $conn->close();
                             </div>
                         </div>
                         <div class="price"><?php echo number_format($row['unit_price_tk'], 2); ?> TK</div>
-                        <div class="quantity">
-<<<<<<< HEAD
-                        <input type="number" value="<?php echo $row['quantity_kg']; ?>" disabled />
-=======
-                            <input type="number" value="<?php echo $row['quantity_kg']; ?>" min="1" />
->>>>>>> 7b0dc0428ed3eba7f1aa771ad689c29743664bb7
+                        <div class="quantity">  
+                            <input type="number" value="<?php echo $row['quantity_kg']; ?>" disabled />
                         </div>
                         <div class="total"><?php echo number_format($row['total_price_tk'], 2); ?> TK</div>
                         <div class="action">
