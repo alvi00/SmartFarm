@@ -159,34 +159,36 @@ $result_sellers = $conn->query($sql_sellers);
                 <span class="promo-badge">100% Farm Fresh Food</span>
                 <h1>Fresh Organic</h1>
                 <p>Food For All</p>
-                <h2>$59.00</h2>
                 <button class="shop-btn">Shop Now</button>
             </div>
         </div>
-        <div class="promo-banner_two">
-            <div class="promo-content_banner_two">
-                <h1>Premium Honeynuts</h1>
-                <p>100% salted organic nuts</p>
-                <h2>$15.00</h2>
-                <button class="shop-btn_banner_two">Shop Now</button>
-            </div>
-        </div>
+        <div class="promo-banner_two" style="position: relative; right: 0; width: 50%; height: 50%; margin-top: 30px; margin-right: 30px; border-radius: 20px; overflow: hidden;">
+    <img src="IMG/promotion-image-2.jpeg" alt="Premium Honeynuts" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; position: absolute; top: 0; left: 0; z-index: 0;">
+    <div class="promo-content_banner_two" style="width: auto; height: auto; padding-left: 50px; padding-right: 50px; padding-top: 40px; position: relative; z-index: 1;">
+        <h1 style="font-size: 30px; font-weight: bold; padding-top: 15px; color: white;">Premium Fruits</h1>
+        <p style="font-size: 15px; font-weight: 500; color: #28a745;">100% Premium Fruits</p>
+    </div>
+</div>
+
         <div class="right-bottom-photos">
-            <div class="promo-banner_three">
-                <div class="promo-content_banner_three">
-                    <h1>Baby diaper</h1>
-                    <p>Top quality product</p>
-                    <button class="shop-btn_banner_three">Shop Now</button>
-                </div>
-            </div>
-            <div class="promo-banner_four">
-                <div class="promo-content_banner_four">
-                    <h1>Facewash</h1>
-                    <p>All Fixed price</p>
-                    <button class="shop-btn_banner_four">Shop Now</button>
-                </div>
-            </div>
+    <div class="promo-banner_three" style="width: 50%; height: 100%; border-radius: 20px; margin-top: 30px; margin-right: 30px; margin-left: 15px; overflow: hidden; position: relative;">
+        <img src="uploads/veg1.jpg" alt="Baby diaper" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1;">
+        <div class="promo-content_banner_three">
+            <h1>Fresh Vegetavles</h1>
+            <p>Top quality product</p>
+            
         </div>
+    </div>
+    <div class="promo-banner_four" style="width: 50%; height: 100%; border-radius: 20px; margin-top: 30px; margin-right: 30px; overflow: hidden; position: relative;">
+        <img src="uploads/veg2.jpg" alt="Facewash" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1;">
+        <div class="promo-content_banner_four">
+            <h1>Fresh Vegetavles</h1>
+            <p>All Fixed price</p>
+            
+        </div>
+    </div>
+    </div>
+
     </div>
     <!-- Promotional Contents ends here -->
 

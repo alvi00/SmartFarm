@@ -280,7 +280,7 @@ body {
   margin: 30px;
 }
 
-.promo-banner_two {
+/* .promo-banner_two {
   position: relative;
   right: 0;
   width: 50%;
@@ -289,7 +289,7 @@ body {
   margin-top: 30px;
   margin-right: 30px;
   border-radius: 20px;
-}
+} */
 
 .right-bottom-photos {
   display: flex;
@@ -303,7 +303,7 @@ body {
   height: 37%;
 }
 
-.promo-banner_three {
+/* .promo-banner_three {
   position: relative;
   width: 50%;
   height: 100%;
@@ -320,7 +320,7 @@ body {
   margin-top: 30px;
   margin-right: 30px;
   border-radius: 20px;
-}
+} */
 
 .promo-content {
   width: auto;
