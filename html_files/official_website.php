@@ -34,11 +34,11 @@ if (isset($_POST['go_to_employee'])) {
         </div>
         <div class="middle-text">
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li><a href="#Home" style=" color: green;">Home</a> </li>
+            <li><a href="#About" style=" color: green;">About</a> </li>
+            <li><a href="#Contact" style=" color: green;">Contact</a> </li>
             <form method="POST">
-            <button class="btn  anas" type="submit" name="go_to_employee"><li id="member" >Member</li></button>
+            <button class="btn  anas" type="submit" name="go_to_employee"><li id="member" style=" color: green;" >Member</li></button>
               
               <!-- <ul class="dropdown">
                 <li>Employee</li>
@@ -129,7 +129,7 @@ if (isset($_POST['go_to_employee'])) {
     </nav>
     <!-- Navbar ends here -->
     <!--Hero Section starts here-->
-    <div class="hero">
+    <div class="hero" id="Home">
       <h2>Empowering Farmers</h2>
       <h2>Connecting Buyers</h2>
       <p>
@@ -161,7 +161,7 @@ if (isset($_POST['go_to_employee'])) {
     <!--numbers section starts here-->
     <section class="about-section">
       <div class="about-content">
-        <h2>About Us</h2>
+        <h2 id="About">About Us</h2>
         <p>
           We are a team committed to delivering excellence. With 500+ employees
           and 7+ global clients, we strive to bring innovation and quality to
@@ -182,7 +182,7 @@ if (isset($_POST['go_to_employee'])) {
     <!--contact us section starts here-->
     <section class="contact-section">
       <div class="contact-content">
-        <h2>Contact Us</h2>
+        <h2 id="Contact">Contact Us</h2>
         <p>
           Have questions? Feel free to reach out, and we’ll get back to you as
           soon as possible.
