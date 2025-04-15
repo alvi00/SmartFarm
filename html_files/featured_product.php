@@ -10,13 +10,14 @@ $cart_count = $result_cart->fetch_assoc()['cart_count'];
 $product_type_id = isset($_GET['product_type_id']) ? (int)$_GET['product_type_id'] : 0;
 
 // Query aggregated product data
-$sql = "SELECT pt.product_name, pt.product_image, ft.farm_type_name,
+$sql = "SELECT pt.product_name, pt.product_image, ft.farm_type_name, p.description,
         SUM(p.weight_kg) AS total_weight, AVG(p.price_tk) AS avg_price
         FROM products p
         JOIN product_types pt ON p.product_type_id = pt.product_type_id
         JOIN farm_types ft ON p.farm_type_id = ft.farm_type_id
         WHERE p.product_type_id = $product_type_id
-        GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name";
+        GROUP BY p.product_type_id, pt.product_name, pt.product_image, ft.farm_type_name, p.description";
+
 $result = $conn->query($sql);
 
 if ($result === false) {
@@ -26,6 +27,7 @@ if ($result === false) {
     $image_path = "../uploads/" . $row['product_image'];
     $product_name = $row['product_name'];
     $total_weight = $row['total_weight'];
+    $description= $row['description'];
     $avg_price = number_format($row['avg_price'], 2);
 } else {
     $image_path = "../IMG/potatoes.png";
@@ -169,14 +171,8 @@ $conn->close();
         <div class="middle_side">
             <h1>FRESH PREMIUM <?php echo $product_name; ?></h1>
             <p class="description">
-                People live in a world of changing seasons, <br />where opportunities
-                and challenges arise.
+            <?php echo $description; ?>
             </p>
-            <ul>
-                <li>People live in a changing environment.</li>
-                <li>Facing challenges in difficult situations.</li>
-                <li>Finding balance and adapting over time.</li>
-            </ul>
         </div>
         <div class="right_side">
             <h2><?php echo $avg_price; ?> TK/kg</h2>
@@ -193,14 +189,6 @@ $conn->close();
                     <button type="submit" class="add-to-cart" name="add_to_cart">Add to Cart</button>
                 </form>
             </div>
-            <div class="checkout">
-                <p>Guaranteed Safe Checkout</p>
-                <div class="payment-options">
-                    <i class="fa fa-cc-visa" style="font-size: 48px; color: #1a1f71"></i>
-                    <i class="fa fa-cc-mastercard" style="font-size: 48px; color: #eb001b"></i>
-                    <span class="cash-on-delivery">Cash on Delivery</span>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Middle part ends -->
@@ -210,6 +198,7 @@ $conn->close();
         <div class="container">
             <div class="footer-section logo-section">
                 <h2 class="logo">SmartFarm</h2>
+                
                 <p>
                     When an unknown printer took a galley of type and scrambled it to
                     make a type specimen book.

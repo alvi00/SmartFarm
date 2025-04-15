@@ -127,27 +127,27 @@ $result_sellers = $conn->query($sql_sellers);
     <div class="vertical-products">
         <div class="items_all">
             <div class="image_of_the_item"><img src="IMG/vegetable.png" alt="item" /></div>
-            <div class="item_description"><h6>Vegetables</h6><p>6 Products</p></div>
+            <div class="item_description"><h6>Vegetables</h6></div>
         </div>
         <div class="items_all">
             <div class="image_of_the_item"><img src="IMG/fruits.png" alt="item" /></div>
-            <div class="item_description"><h6>Fresh Fruits</h6><p>8 Products</p></div>
+            <div class="item_description"><h6>Fresh Fruits</h6></div>
         </div>
         <div class="items_all">
             <div class="image_of_the_item"><img src="IMG/Milk.png" alt="item" /></div>
-            <div class="item_description"><h6>Dairy Items</h6><p>5 Products</p></div>
+            <div class="item_description"><h6>Dairy Items</h6></div>
         </div>
         <div class="items_all">
             <div class="image_of_the_item"><img src="IMG/fish.png" alt="item" /></div>
-            <div class="item_description"><h6>Fish Items</h6><p>6 Products</p></div>
+            <div class="item_description"><h6>Fish Items</h6></div>
         </div>
         <div class="items_all">
             <div class="image_of_the_item"><img src="IMG/meat.png" alt="item" /></div>
-            <div class="item_description"><h6>Meat Items</h6><p>6 Products</p></div>
+            <div class="item_description"><h6>Meat Items</h6></div>
         </div>
         <div class="items_all">
             <div class="image_of_the_item"><img src="IMG/vegetable.png" alt="item" /></div>
-            <div class="item_description"><h6>Carb Items</h6><p>6 items</p></div>
+            <div class="item_description"><h6>Carb Items</h6></div>
         </div>
     </div>
     <!-- Closing vertical-products -->
