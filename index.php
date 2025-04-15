@@ -163,18 +163,18 @@ $result_sellers = $conn->query($sql_sellers);
             </div>
         </div>
         <div class="promo-banner_two" style="position: relative; right: 0; width: 50%; height: 50%; margin-top: 30px; margin-right: 30px; border-radius: 20px; overflow: hidden;">
-    <img src="IMG/promotion-image-2.jpeg" alt="Premium Honeynuts" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; position: absolute; top: 0; left: 0; z-index: 0;">
+    <img src="uploads/carb.jpg" alt="Premium Honeynuts" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; position: absolute; top: 0; left: 0; z-index: 0;">
     <div class="promo-content_banner_two" style="width: auto; height: auto; padding-left: 50px; padding-right: 50px; padding-top: 40px; position: relative; z-index: 1;">
-        <h1 style="font-size: 30px; font-weight: bold; padding-top: 15px; color: white;">Premium Fruits</h1>
-        <p style="font-size: 15px; font-weight: 500; color: #28a745;">100% Premium Fruits</p>
+        <h1 style="font-size: 30px; font-weight: bold; padding-top: 15px; color: white;">Premium Carbs</h1>
+        <p style="font-size: 15px; font-weight: 500; color: #28a745;">100% Premium Carbs</p>
     </div>
 </div>
 
         <div class="right-bottom-photos">
     <div class="promo-banner_three" style="width: 50%; height: 100%; border-radius: 20px; margin-top: 30px; margin-right: 30px; margin-left: 15px; overflow: hidden; position: relative;">
-        <img src="uploads/veg1.jpg" alt="Baby diaper" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1;">
+        <img src="uploads/fresh fruit.jpg" alt="Baby diaper" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -1;">
         <div class="promo-content_banner_three">
-            <h1>Fresh Vegetavles</h1>
+            <h1>Fresh Fruits</h1>
             <p>Top quality product</p>
             
         </div>
