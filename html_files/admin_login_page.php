@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die("Connection failed");
 
 // Hardcoded admin credentials
@@ -9,18 +10,35 @@ $admin_password = "alvifahim1234";
 $error_message = "";
 
 // Handle form submission
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['go_to_employee_form'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $submitted_email = trim($_POST['email']);
     $submitted_password = trim($_POST['password']);
+    $employee_id = (int)$_POST['employee_id'];
+    $action = $_POST['action'];
 
     // Validate credentials
     if ($submitted_email === $admin_email && $submitted_password === $admin_password) {
-        header("Location: employee_form.php");
-        exit();
+        if ($action == 'delete' && $employee_id > 0) {
+            $stmt = $conn->prepare("DELETE FROM employees WHERE employee_id = ?");
+            $stmt->bind_param("i", $employee_id);
+            $stmt->execute();
+            $stmt->close();
+            header("Location: official_website_employee.php?message=Employee+deleted");
+            exit();
+        } elseif ($action == 'update' && $employee_id > 0) {
+            $_SESSION['employee_id_to_update'] = $employee_id;
+            header("Location: update_employee_form.php");
+            exit();
+        } else {
+            header("Location: employee_form.php");
+            exit();
+        }
     } else {
         $error_message = "Invalid email or password.";
     }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['go_to_employee_form'])
                         required
                     />
                 </div>
+                <input type="hidden" name="employee_id" value="<?php echo isset($_GET['employee_id']) ? (int)$_GET['employee_id'] : 0; ?>">
+                <input type="hidden" name="action" value="<?php echo isset($_GET['action']) ? htmlspecialchars($_GET['action']) : ''; ?>">
                 <button type="submit" class="btn-admin-login" name="go_to_employee_form">Login</button>
             </form>
         </div>

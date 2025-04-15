@@ -1,0 +1,134 @@
+2025-04-15 | Fahim Foysal | per unit price
+2025-04-15 | Fahim Foysal | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-04-15 | Fahim Foysal | pic name change
+2025-04-15 | alvi00 | changed navabar
+2025-04-15 | alvi00 | solved increase problem
+2025-04-15 | alvi00 | solved increase problem
+2025-04-15 | alvi00 | solved increase problem
+2025-04-15 | Fahim Foysal | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-04-15 | Fahim Foysal | q
+2025-04-15 | alvi00 | navbar deleted
+2025-04-15 | alvi00 | chnages
+2025-04-15 | alvi00 | added descroption dynamic in products
+2025-04-15 | alvi00 | added descroption dynamic in products
+2025-04-15 | Fahim Foysal | footer
+2025-04-15 | alvi00 | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-04-15 | alvi00 | chnaged scrool
+2025-04-15 | Fahim Foysal | correction
+2025-04-15 | alvi00 | your message here
+2025-04-15 | alvi00 | added
+2025-04-15 | alvi00 | sobi added
+2025-04-15 | Fahim Foysal | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-04-15 | Fahim Foysal | pic
+2025-04-15 | alvi00 | deletes signup button
+2025-04-15 | alvi00 | added sql
+2025-04-15 | alvi00 | solved the isue of user login in farmwr section and used delete button
+2025-04-15 | Fahim Foysal | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-04-15 | Fahim Foysal | pic name change
+2025-04-15 | alvi00 | solved the login system
+2025-04-15 | alvi00 | fixed the search
+2025-04-15 | alvi00 | deleted the all catagories
+2025-04-13 | alvi00 | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-04-13 | alvi00 | sql updated
+2025-04-13 | Fahim Foysal | image
+2025-04-13 | alvi00 | chnaged redirect
+2025-04-13 | alvi00 | login sign up done
+2025-04-13 | alvi00 | added search functionality in index.php
+2025-04-13 | alvi00 | added cart php
+2025-04-06 | alvi00 | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-04-06 | alvi00 | solved password issue
+2025-04-06 | Fahim Foysal | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-04-06 | Fahim Foysal | order details
+2025-04-05 | alvi00 | added dynamic index, featured_product,add_to_card
+2025-04-05 | Ahmad Fahmid | Merge pull request #7 from alvi00/main
+2025-04-05 | Fahim Foysal | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-04-05 | Fahim Foysal | add to cart
+2025-04-05 | alvi00 | added dynamicness in index.php and featured_products.php
+2025-04-05 | alvi00 | added trending products to dynamic,top sellers,our products dynamic
+2025-04-05 | alvi00 | fixed add product
+2025-04-05 | alvi00 | added php to add_product and made database product table
+2025-04-05 | Ahmad Fahmid | Merge pull request #6 from alvi00/test
+2025-04-04 | alvi00 | solved the problem in add farmer  section and added add product
+2025-04-04 | Fahim Foysal | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-04-04 | Fahim Foysal | add farmer form
+2025-04-04 | alvi00 | test
+2025-04-04 | alvi00 | added add_farmer logic and connected database successfully
+2025-03-30 | alvi00 | added sql and edited add farmer form
+2025-03-29 | alvi00 | added admin login emplyee form and added employee showdcase page
+2025-03-28 | alvi00 | added contact us section in official website
+2025-03-28 | alvi00 | added about us section in official website
+2025-03-28 | alvi00 | number section added to official website
+2025-03-28 | alvi00 | added hero section in office
+2025-03-28 | alvi00 | added navbar to official website
+2025-03-24 | Fahim Foysal | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-03-24 | Fahim Foysal | 2nd page change
+2025-03-09 | alvi00 | added official website
+2025-03-08 | alvi00 | fixing vertical products in index
+2025-03-06 | alvi00 | added link to farmer and index
+2025-03-06 | alvi00 | added farner html , made navbar fixed
+2025-03-06 | alvi00 | deleted farmer
+2025-03-06 | alvi00 | m
+2025-03-05 | alvi00 | connecting to pages in index html
+2025-03-05 | Fahim Foysal | last
+2025-03-05 | Fahim Foysal | name chnge
+2025-03-05 | alvi00 | added responsive footer
+2025-03-05 | alvi00 | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-03-05 | alvi00 | added our products
+2025-03-05 | Fahim Foysal | adding farmar form
+2025-03-04 | Fahim Foysal | employee form
+2025-03-04 | Fahim Foysal | admin login page
+2025-03-04 | Fahim Foysal | added logo meta ver
+2025-03-04 | alvi00 | solved login and signup image problem
+2025-03-04 | Fahim Foysal | signup page
+2025-03-04 | Fahim Foysal | login page
+2025-03-04 | alvi00 | added fahims page and add a back button to my page
+2025-03-04 | alvi00 | added navbar to featured products
+2025-03-04 | Fahim Foysal | Merge branch 'test' of https://github.com/alvi00/SmartFarm into test
+2025-03-04 | Fahim Foysal | html and css for product page
+2025-03-04 | Fahim Foysal | commit
+2025-03-04 | alvi00 | logo image fix
+2025-03-04 | alvi00 | css image fix
+2025-03-04 | alvi00 | images access corrected
+2025-03-04 | Fahim Foysal | commit
+2025-03-04 | alvi00 | added some hover effect
+2025-03-04 | alvi00 | added some hover effect to the top sellers
+2025-03-04 | alvi00 | added Top Sellers
+2025-03-04 | Ahmad Fahmid | Merge pull request #5 from alvi00/test
+2025-03-04 | alvi00 | added trending products with responsive
+2025-03-04 | alvi00 | added featured-products-text
+2025-03-03 | alvi00 | made promotional contents responsive
+2025-03-03 | alvi00 | added promotional image with some responsiveness have to work on the promo-content
+2025-03-03 | Ahmad Fahmid | Merge pull request #3 from alvi00/test
+2025-03-03 | alvi00 | added promotion images
+2025-03-03 | alvi00 | added vertical products
+2025-03-02 | alvi00 | added some images
+2025-03-02 | alvi00 | added navbar to feathered products
+2025-03-02 | alvi00 | added comments
+2025-03-02 | alvi00 | added button to the offcanvas, deleted divider and made navnar reponsive
+2025-03-02 | alvi00 | added off canvas
+2025-03-02 | alvi00 | with offcanvas
+2025-03-02 | alvi00 | full navbar without offcanvas
+2025-03-02 | alvi00 | 90% done navbar
+2025-03-02 | alvi00 | navbar almost done
+2025-03-02 | alvi00 | added nav half
+2025-03-02 | alvi00 | added font awesome cdn
+2025-03-02 | alvi00 | added logo
+2025-03-01 | Fahim Foysal | new img added
+2025-03-01 | alvi00 | linked css file to product details
+2025-03-01 | alvi00 | foldering
+2025-03-01 | Fahim Foysal | added 2nd page
+2025-03-01 | Fahim Foysal | shefa gay
+2025-03-01 | Fahim Foysal | Merge branch 'main' of https://github.com/alvi00/SmartFarm
+2025-03-01 | Fahim Foysal | adding h2
+2025-03-01 | Ahmad Fahmid | Merge pull request #2 from alvi00/test
+2025-03-01 | alvi00 | added okita
+2025-03-01 | Fahim Foysal | test
+2025-03-01 | Fahim Foysal | test
+2025-03-01 | Fahim Foysal | maon
+2025-03-01 | alvi00 | update header text for testing branch functionality
+2025-03-01 | alvi00 | added fahim
+2025-03-01 | Fahim Foysal | hq chBE
+2025-03-01 | alvi00 | gg
+2025-03-01 | alvi00 | added sdomethu
+2025-03-01 | alvi00 | installed tailwind, bootstap, daizy ui
+2025-03-01 | alvi00 | first commit

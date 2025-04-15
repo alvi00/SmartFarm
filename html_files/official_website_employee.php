@@ -6,7 +6,7 @@ $conn = mysqli_connect("localhost", "root", "alvi1234hello", "smartfarm") or die
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
 // Fetch employees
-$query = "SELECT full_name, designation, email, phone_number, blood_group, joining_date, profile_image FROM employees";
+$query = "SELECT employee_id, full_name, designation, email, phone_number, blood_group, joining_date, profile_image FROM employees";
 if (!empty($search)) {
     $search = mysqli_real_escape_string($conn, $search);
     $query .= " WHERE full_name LIKE '%$search%' OR designation LIKE '%$search%'";
@@ -86,6 +86,9 @@ if (isset($_POST['go_to_login'])) {
     <!-- Our products ends here -->
     <!-- Product card starts here -->
     <div class="product-card-div_down">
+        <?php if (isset($_GET['message'])): ?>
+            <div class="alert alert-success"><?php echo htmlspecialchars($_GET['message']); ?></div>
+        <?php endif; ?>
         <?php if (mysqli_num_rows($result) > 0) { ?>
             <?php while ($employee = mysqli_fetch_assoc($result)) { ?>
                 <div class="product-card_down">
@@ -105,7 +108,8 @@ if (isset($_POST['go_to_login'])) {
                         </div>
                     </div>
                     <div class="wishlist_down">
-                        <i class="far fa-heart"></i>
+                        <a href="admin_login_page.php?action=delete&employee_id=<?php echo $employee['employee_id']; ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                        <a href="admin_login_page.php?action=update&employee_id=<?php echo $employee['employee_id']; ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                     </div>
                 </div>
             <?php } ?>
@@ -123,15 +127,14 @@ if (isset($_POST['go_to_login'])) {
         </form>
     </div>
     <!-- Add member ends here -->
-     
     <!-- Footer starts here -->
     <footer class="footer">
         <div class="container">
             <div class="footer-section logo-section">
                 <h2 class="logo">SmartFarm</h2>
                 <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <p><i class="fas fa-map-marker-alt"></i> 23/A Road,Uttara,Dhaka</p>
-                <p><i class="fas fa-phone-alt"></i>)01711946008</p>
+                <p><i class="fas fa-map-marker-alt"></i> 23/A Road, Uttara, Dhaka</p>
+                <p><i class="fas fa-phone-alt"></i> 01711946008</p>
                 <div class="social-icons">
                     <i class="fab fa-facebook"></i>
                     <i class="fab fa-x-twitter"></i>
@@ -156,7 +159,7 @@ if (isset($_POST['go_to_login'])) {
                 <ul>
                     <li><a href="#">My Orders</a></li>
                     <li><a href="#">Cart</a></li>
-                    <li><a href="#">Checkout</a></li>   
+                    <li><a href="#">Checkout</a></li>
                     <li><a href="#">My Account</a></li>
                 </ul>
             </div>
