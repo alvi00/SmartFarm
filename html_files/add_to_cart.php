@@ -117,28 +117,6 @@ $conn->close();
                 <a href="../index.php"><img src="../IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
 
-            <!-- Desktop Categories -->
-            <div class="desktop-only dropdown">
-                <button class="btn all_catagories" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button">Action</button></li>
-                    <li><button class="dropdown-item" type="button">Another action</button></li>
-                    <li><button class="dropdown-item" type="button">Something else here</button></li>
-                </ul>
-            </div>
-
-            <!-- Desktop Search -->
-            <form class="d-flex search-form desktop-only" role="search">
-                <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                <button class="btn search-button" type="submit">
-                    <div class="search-text">
-                        <p>Search</p>
-                        <i class="fas fa-search"></i>
-                    </div>
-                </button>
-            </form>
 
             <div class="icons-right">
                 <div class="user-icon">
@@ -169,27 +147,9 @@ $conn->close();
                     </div>
                     <div class="offcanvas-body">
                         <!-- Mobile Categories -->
-                        <div class="mobile-only dropdown mb-3">
-                            <button class="btn all_catagories w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Action</button></li>
-                                <li><button class="dropdown-item" type="button">Another action</button></li>
-                                <li><button class="dropdown-item" type="button">Something else here</button></li>
-                            </ul>
-                        </div>
 
                         <!-- Mobile Search -->
-                        <form class="d-flex search-form mobile-only mb-3" role="search">
-                            <input class="form-control search-input" type="search" placeholder="   Type Your Products" aria-label="Search" />
-                            <button class="btn search-button" type="submit">
-                                <div class="search-text">
-                                    <p>Search</p>
-                                    <i class="fas fa-search"></i>
-                                </div>
-                            </button>
-                        </form>
+
 
                         <!-- Offcanvas Buttons -->
                         <div class="offcanvas-buttons">
