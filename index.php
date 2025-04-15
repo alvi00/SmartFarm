@@ -70,16 +70,7 @@ $result_sellers = $conn->query($sql_sellers);
             <div class="logo">
                 <a href="#"><img src="IMG/LOGO DESIGN-01.png" alt="logo" /></a>
             </div>
-            <div class="desktop-only dropdown">
-                <button class="btn all_catagories" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button">Action</button></li>
-                    <li><button class="dropdown-item" type="button">Another action</button></li>
-                    <li><button class="dropdown-item" type="button">Something else here</button></li>
-                </ul>
-            </div>
+
             <form class="d-flex search-form desktop-only" method="GET">
                 <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
                 <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
@@ -104,16 +95,6 @@ $result_sellers = $conn->query($sql_sellers);
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <div class="mobile-only dropdown mb-3">
-                            <button class="btn all_catagories w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-bars-staggered"></i> All Categories <i class="fa-solid fa-angle-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Action</button></li>
-                                <li><button class="dropdown-item" type="button">Another action</button></li>
-                                <li><button class="dropdown-item" type="button">Something else here</button></li>
-                            </ul>
-                        </div>
                         <form class="d-flex search-form mobile-only mb-3" method="GET">
                              <input class="form-control search-input" type="search" name="search" placeholder="Type Your Products" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
                             <button class="btn search-button" type="submit"><i class="fas fa-search"></i></button>
