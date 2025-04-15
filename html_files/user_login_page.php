@@ -80,9 +80,6 @@ $conn->close();
                     <a href="#">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn-login" name="login">Login</button>
-                <div class="signup-link">
-                    Don't have an account? <a href="user_signup_page.php">Sign Up</a>
-                </div>
             </form>
             <div class="social-login">
                 <p>Or continue with</p>
